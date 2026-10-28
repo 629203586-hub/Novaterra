@@ -26,7 +26,7 @@ test('tree sites avoid mountain slopes and structures',()=>{
  assert.equal(canPlaceConifer(-18,11,.85),true);
 });
 
-test('cable cars clear chalet roofs and cable runs underneath station roofs',()=>{
+test('cable cars clear chalet roofs and station shelters',()=>{
  const found=html.match(/const liftA=new THREE\.Vector3\(([^)]+)\),liftB=new THREE\.Vector3\(([^)]+)\),liftC=new THREE\.Vector3\(([^)]+)\)/);
  assert.ok(found);const [A,B,C]=found.slice(1).map(s=>s.split(',').map(Number));
  const dx=C[0]-A[0],dz=C[2]-A[2],len=Math.hypot(dx,dz),nx=-dz/len,nz=dx/len,heading=Math.atan2(dx,dz),cs=Math.cos(heading),sn=Math.sin(heading);
@@ -37,9 +37,11 @@ test('cable cars clear chalet roofs and cable runs underneath station roofs',()=
   for(const lane of[-.9,.9]){
    const x=c[0]+nx*lane,z=c[2]+nz*lane,bottom=c[1]-2.06;
    for(const [bx,bz,w,d,h] of houses)if(Math.abs(x-bx)<w/2+1.05&&Math.abs(z-bz)<d/2+1.05)assert.ok(bottom>.83+h+w*.36+.2,`cabin intersects chalet at ${bx}, ${bz}`);
-   for(const station of [{a:A,roof:5.15+3.75},{a:C,roof:10.75+2.64}]){
-    const sx=x-station.a[0],sz=z-station.a[2],localX=cs*sx-sn*sz,localZ=sn*sx+cs*sz;
-    if(Math.abs(localX)<3&&Math.abs(localZ)<1.85)assert.ok(c[1]+.18<station.roof-.08,'cable meets station roof');
+   const g=JSON.parse(html.match(/const stationGeometry=(\{[^;]+\});/)[1]);
+   for(const station of [{a:A,platform:5.35},{a:C,platform:10.75}]){
+    const sx=x-station.a[0],sz=z-station.a[2],localX=cs*sx-sn*sz,localZ=sn*sx+cs*sz,top=c[1]+.30;
+    const structures=[{name:'ticket booth',x:g.boothX,w:g.bodyWidth,z:0,d:g.bodyDepth,low:station.platform+.04,high:station.platform+.89+g.bodyHeight/2},{name:'shelter roof',x:g.boothX,w:g.roofWidth,z:0,d:g.roofDepth,low:station.platform+g.roofY-g.roofHeight/2,high:station.platform+g.roofY+g.roofHeight/2},{name:'safety rail',x:g.railX,w:g.railWidth,z:0,d:g.railDepth,low:station.platform+.15,high:station.platform+1.15},{name:'flag pole',x:g.boothX,w:.07,z:0,d:.07,low:station.platform+1.95,high:station.platform+3.26}];
+    for(const o of structures){const overlapX=Math.abs(localX-o.x)<.9+o.w/2,overlapZ=Math.abs(localZ-o.z)<1+o.d/2,overlapY=bottom<o.high&&top>o.low;assert.ok(!(overlapX&&overlapZ&&overlapY),`cabin meets ${o.name} at u=${u}, lane=${lane}`);}
    }
   }
  }
