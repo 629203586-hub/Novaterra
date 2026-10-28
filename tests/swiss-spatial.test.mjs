@@ -93,3 +93,27 @@ test('cable cars clear chalet roofs and station shelters',()=>{
   }
  }
 });
+
+
+test('chalet plaster and timber facades meet without coplanar overlap',()=>{
+ const lower=html.match(/box\(M\.cream,0,([^,]+),0,w,([^,]+),d,\[0,0,0\],b\)/);
+ const upper=html.match(/box\(M\.wood,0,([^,]+),0,w,([^,]+),d,\[0,0,0\],b\)/);
+ assert.ok(lower&&upper,'expected both structural wall volumes');
+ for(const h of [2.45,2.5,2.65,2.75,3.05]){
+  const evalAt=expr=>vm.runInNewContext(expr,{base:.83,h});
+  const lowerTop=evalAt(lower[1])+evalAt(lower[2])/2;
+  const upperBottom=evalAt(upper[1])-evalAt(upper[2])/2;
+  assert.ok(Math.abs(lowerTop-upperBottom)<1e-9,'plaster/timber wall planes overlap or leave a gap');
+ }
+});
+
+
+test('snow covers the complete mountain and a modeled reverse slope reaches the rear foothills',()=>{
+ const meshes=JSON.parse(html.match(/const alpineRidgeMeshes=(\[[^;]+\]);/)[1]);
+ assert.equal(meshes[0].length+meshes[1].length,0,'snow mountain contains exposed bare-material patches');
+ let rearHeight=0,rearCount=0;
+ for(const positions of meshes)for(let i=0;i<positions.length;i+=3){
+  if(positions[i+2]<-19){rearHeight=Math.max(rearHeight,positions[i+1]);rearCount++;}
+ }
+ assert.ok(rearCount>1000&&rearHeight>1.5,'reverse mountain has been flattened or cut off');
+});
