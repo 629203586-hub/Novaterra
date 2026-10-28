@@ -1,0 +1,11 @@
+node_modules/
+.sites-runtime/
+.wrangler/
+work/
+dist/server/
+dist/.openai/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+.env*
+.dev.vars*

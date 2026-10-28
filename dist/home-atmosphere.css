@@ -1,0 +1,12 @@
+/* One continuous photograph, with clear contours and no blur. */
+.home-screen{isolation:isolate}
+.home-atmosphere{position:absolute;inset:0;z-index:0;pointer-events:none;user-select:none;overflow:hidden;contain:paint}
+.home-landscape{display:block;width:100%;height:100%;object-fit:cover;object-position:center 65%;filter:saturate(.7) sepia(.08) brightness(1.03);opacity:.9}
+.home-atmosphere:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#f7f6ef 0%,#f7f6effa 13%,#f7f6efed 34%,#f7f6efb3 62%,#f7f6ef73 86%,#f7f6ef 100%)}
+.home-screen .intro-content{z-index:1}
+.home-screen .intro-content:before{background:none}
+.home-screen .intro-content>p{color:#627057}
+.home-screen .intro-content>small{color:#68745c}
+.home-screen .cursor-bot,.home-screen .intro-edition{z-index:2}
+@media(max-width:760px){.home-landscape{object-position:58% center;opacity:.85}.home-atmosphere:after{background:linear-gradient(180deg,#f7f6ef 0%,#f7f6eff5 15%,#f7f6efdb 38%,#f7f6efb3 60%,#f7f6ef8c 83%,#f7f6ef 100%)}}
+@media(prefers-contrast:more){.home-atmosphere{display:none}}

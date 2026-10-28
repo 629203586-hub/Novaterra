@@ -1,0 +1,52 @@
+/* A tiny journey picker. All styles stay inside the surprise dialog. */
+dialog.surprise-dialog{width:min(420px,calc(100% - 36px));max-height:calc(100dvh - 32px);padding:30px 28px 22px;overflow-x:hidden;overflow-y:auto;border:1px solid #d6dfca;border-radius:26px;background:#fafaf2;box-shadow:0 30px 120px #233e302b}
+.surprise-dialog .dialog-close{inset:10px 10px auto auto;display:grid;place-items:center;width:34px;height:34px;padding:0;font-size:26px;line-height:1;z-index:3}
+.surprise-dialog .surprise-content{text-align:center}
+.surprise-dialog .dialog-eyebrow{color:#7d9171;letter-spacing:2.1px;font-size:8px;padding:5px 30px 0}
+.surprise-dialog h2{font-family:Georgia,'Noto Serif',serif;font-weight:400;font-size:30px;letter-spacing:-1px;line-height:1.2;margin:14px 0 8px;text-wrap:balance}
+.surprise-dialog .surprise-intro{font-size:11px;line-height:1.6;margin:0;color:#85917b;text-wrap:balance}
+.surprise-dialog .surprise-wheel-stage{position:relative;direction:ltr;width:236px;height:236px;margin:23px auto 16px;isolation:isolate}
+.surprise-dialog .surprise-wheel-ring{position:absolute;inset:0;border:1px solid #d9e0ca;border-radius:50%;background:radial-gradient(circle,#ecf0e2 61%,transparent 62%);box-shadow:0 10px 28px #4058340b}
+.surprise-dialog .surprise-wheel-ring:before{content:'';position:absolute;inset:6px;border:1px dashed #b5c49c;border-radius:50%;opacity:.8}
+.surprise-dialog .surprise-wheel{position:absolute;inset:15px;overflow:hidden;border:5px solid #fffef7;border-radius:50%;box-shadow:0 3px 12px #324e3821;transform:rotate(var(--wheel-turn,0deg));transition:transform var(--spin-duration,2600ms) cubic-bezier(.14,.7,.15,1);will-change:transform}
+.surprise-dialog .surprise-wheel svg{width:100%;height:100%;display:block;overflow:visible}
+.surprise-dialog .surprise-wheel svg text{font-family:Arial,'Noto Sans SC',sans-serif;paint-order:stroke;stroke:none}
+.surprise-dialog .surprise-pointer{position:absolute;top:3px;left:calc(50% - 10px);width:20px;height:26px;z-index:2;filter:drop-shadow(0 3px 2px #29433120);transform-origin:50% 25%}
+.surprise-dialog .surprise-pointer:before{content:'';display:block;width:100%;height:100%;background:#315944;clip-path:polygon(9% 0,91% 0,100% 22%,50% 100%,0 22%);border-radius:5px}
+.surprise-dialog .surprise-pointer:after{content:'';position:absolute;top:4px;left:8px;width:4px;height:4px;border-radius:50%;background:#f1efda}
+.surprise-dialog .surprise-wheel-hub{position:absolute;inset:calc(50% - 20px);display:grid;place-items:center;width:40px;height:40px;border:5px solid #fffef7;border-radius:50%;background:#315944;color:#eef0d9;box-shadow:0 2px 7px #2943312b;font-family:Georgia,serif;font-size:23px;line-height:1;pointer-events:none}
+.surprise-dialog[data-surprise-stage="spinning"] .surprise-pointer{animation:surprise-pointer-tick .26s ease-in-out infinite alternate}
+.surprise-dialog .surprise-status{min-height:20px;line-height:1.6;font-size:10px;letter-spacing:.2px;margin:8px 0 0;color:#839177}
+.surprise-dialog [hidden]{display:none!important}
+.surprise-dialog .has-result .surprise-wheel-stage{display:none}
+.surprise-dialog .surprise-reveal{margin:23px 0 0;perspective:1100px}
+.surprise-dialog .surprise-card{width:100%;height:218px;perspective:1100px;outline:none}
+.surprise-dialog .surprise-card-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .78s cubic-bezier(.25,.65,.2,1)}
+.surprise-dialog .surprise-card.is-flipped .surprise-card-inner{transform:rotateY(180deg)}
+.surprise-dialog .surprise-card-front,.surprise-dialog .surprise-card-back{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid #d4dec3;border-radius:20px;overflow:hidden;isolation:isolate;background:#edf1e2;box-shadow:0 8px 22px #41562e0c;padding:20px}
+.surprise-dialog .surprise-card-front:before{content:'';position:absolute;inset:9px;border:1px dashed #b7c69e;border-radius:13px;z-index:-1}
+.surprise-dialog .surprise-card-front:after{content:'';position:absolute;width:190px;height:190px;right:-100px;bottom:-75px;border:1px solid #c4d1af;border-radius:50%;box-shadow:0 0 0 13px #d5dfc433,0 0 0 26px #d5dfc42b;z-index:-1}
+.surprise-dialog .surprise-card-symbol{font-size:37px;line-height:1;color:#718c5e;margin-bottom:18px}
+.surprise-dialog .surprise-card-front p{font-family:Georgia,'Noto Serif',serif;font-size:22px;line-height:1.35;letter-spacing:-.35px;color:#38583f;margin:0 0 10px;text-wrap:balance}
+.surprise-dialog .surprise-card-front small{font-size:9px;color:#8b9b7b;letter-spacing:.3px}
+.surprise-dialog .surprise-card-back{transform:rotateY(180deg);background:#fffdf4;border-color:#d6dfc6}
+.surprise-dialog .surprise-card-back:before{content:'';position:absolute;width:125px;height:125px;top:-80px;left:-40px;border:1px solid #dce5ce;border-radius:50%;box-shadow:0 0 0 15px #e5eadc55,0 0 0 30px #e5eadc33;z-index:-1}
+.surprise-dialog .surprise-card-flag{font-family:Arial,sans-serif;font-size:38px;line-height:1.1;margin-bottom:8px}
+.surprise-dialog .surprise-card-back h3{font-family:Georgia,'Noto Serif',serif;font-weight:400;letter-spacing:-.6px;font-size:28px;line-height:1.15;margin:0;color:#31523e}
+.surprise-dialog .surprise-card-back p{font-size:10px;line-height:1.5;margin:7px 0 0;color:#87947a}
+.surprise-dialog .surprise-card-back .surprise-enter{width:auto;max-width:100%;min-height:39px;font-size:11px;border-radius:9px;padding:11px 19px;gap:14px;margin-top:16px;box-shadow:0 3px 0 #213e300b;white-space:normal;text-wrap:balance}
+.surprise-dialog .surprise-enter:hover{background:#243f31;transform:translateY(-2px);box-shadow:0 5px 13px #3159441c}
+.surprise-dialog .surprise-enter:active{transform:translateY(0) scale(.98)}
+.surprise-dialog .surprise-again{display:none;font-size:10px;color:#7d9070;text-decoration:underline;text-decoration-color:#bfcbb2;text-underline-offset:4px;padding:10px 16px;margin:7px auto 0;border-radius:8px;transition:color .18s,background .18s,transform .18s;min-height:36px}
+.surprise-dialog .has-result .surprise-again{display:inline-block}
+.surprise-dialog .surprise-again:hover{color:#315944;background:#eaf0df}
+.surprise-dialog .surprise-again:active{transform:scale(.96)}
+.surprise-dialog .surprise-again:disabled{opacity:.45;cursor:wait}
+.surprise-dialog :is(button,a,.surprise-card):focus-visible{outline:2px solid #729a58;outline-offset:4px}
+@keyframes surprise-pointer-tick{from{transform:rotate(-9deg)}to{transform:rotate(7deg)}}
+@media(max-width:400px){dialog.surprise-dialog{width:calc(100% - 28px);padding:26px 20px 18px;border-radius:22px}.surprise-dialog h2{font-size:28px;margin-top:13px}.surprise-dialog .surprise-wheel-stage{width:220px;height:220px;margin-top:20px}.surprise-dialog .surprise-card{height:211px}.surprise-dialog .surprise-card-front p{font-size:21px}.surprise-dialog .surprise-card-back h3{font-size:26px}}
+@media(max-height:590px){dialog.surprise-dialog{padding-top:22px;padding-bottom:14px}.surprise-dialog h2{font-size:26px;margin:11px 0 7px}.surprise-dialog .surprise-wheel-stage{width:194px;height:194px;margin:17px auto 12px}.surprise-dialog .surprise-reveal{margin-top:17px}.surprise-dialog .surprise-card{height:194px}.surprise-dialog .surprise-card-front,.surprise-dialog .surprise-card-back{padding:15px}.surprise-dialog .surprise-card-flag{font-size:31px}.surprise-dialog .surprise-card-back h3{font-size:25px}.surprise-dialog .surprise-card-back .surprise-enter{margin-top:12px}.surprise-dialog .surprise-card-symbol{font-size:31px;margin-bottom:14px}}
+@media(prefers-reduced-motion:reduce){.surprise-dialog .surprise-wheel,.surprise-dialog .surprise-card-inner,.surprise-dialog .surprise-enter,.surprise-dialog .surprise-again{transition:none!important}.surprise-dialog .surprise-pointer{animation:none!important}}
+
+.surprise-dialog .surprise-card-back{cursor:pointer}.surprise-dialog .surprise-card-back:focus-visible{outline-offset:-5px}
+@media(max-width:760px){.surprise-button{display:flex;justify-content:center;min-height:28px;font-size:9px;margin:7px auto 0;padding:3px 10px}.surprise-button>span:first-child{font-size:16px}}
