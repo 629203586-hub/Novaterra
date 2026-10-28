@@ -10,6 +10,53 @@ assert.ok(terrain&&ski&&trees,'expected terrain and animation helpers');
 const ctx={THREE:{MathUtils:{clamp:(v,a,b)=>Math.min(b,Math.max(a,v))}}};
 const {ridgeHeight,skiState,canPlaceConifer}=vm.runInNewContext(`const ridgeHeights=${terrain[1]};${terrain[2]};${ski[1]};${trees[1]};({ridgeHeight,skiState,canPlaceConifer})`,ctx);
 
+test('terrain heights agree with points inside the rendered mountain triangles',()=>{
+ const meshMatch=html.match(/const alpineRidgeMeshes=(\[[^;]+\]);/);
+ assert.ok(meshMatch,'expected the rendered mountain geometry');
+ const meshes=JSON.parse(meshMatch[1]);let checked=0;
+ for(const positions of meshes)for(let i=0;i<positions.length;i+=9){
+  const a=positions.slice(i,i+3),b=positions.slice(i+3,i+6),c=positions.slice(i+6,i+9);
+  const area=(b[0]-a[0])*(c[2]-a[2])-(c[0]-a[0])*(b[2]-a[2]);
+  if(Math.abs(area)<1e-9)continue;
+  // Sample the actual mesh, independently of its grid dimensions or diagonal choice.
+  const x=a[0]*.2+b[0]*.3+c[0]*.5,z=a[2]*.2+b[2]*.3+c[2]*.5;
+  const expected=a[1]*.2+b[1]*.3+c[1]*.5;
+  assert.ok(Math.abs(ridgeHeight(x,z)-expected)<.003,`terrain sampler leaves the mesh at ${x}, ${z}`);
+  checked++;
+ }
+ assert.ok(checked>1000,'expected a complete mountain surface');
+});
+
+test('all chalet foundations have level ground below their footprint',()=>{
+ const houses=[...html.matchAll(/chalet\(\{([^}]+)\}\)/g)].filter(([,settings])=>/(?:^|,)x:/.test(settings));
+ assert.equal(houses.length,9,'expected all nine village chalets');
+ for(const [,settings] of houses){
+  const value=(name,fallback)=>{const match=settings.match(new RegExp(`(?:^|,)${name}:(-?[0-9.]+)`));return match?Number(match[1]):fallback;};
+  const x=value('x'),z=value('z'),w=value('w',3.5)+.15,d=value('d',3)+.12,base=value('base',.83);
+  for(const sx of[-1,0,1])for(const sz of[-1,0,1]){
+   const px=x+sx*w/2,pz=z+sz*d/2;
+   assert.ok(ridgeHeight(px,pz)<=base+.025,`mountain covers the chalet foundation at ${x}, ${z} (sample ${px}, ${pz})`);
+  }
+ }
+});
+
+test('swaying cable car bottom corners clear the mountain in both directions',()=>{
+ const found=html.match(/const liftA=new THREE\.Vector3\(([^)]+)\),liftB=new THREE\.Vector3\(([^)]+)\),liftC=new THREE\.Vector3\(([^)]+)\)/);
+ assert.ok(found);const[A,B,C]=found.slice(1).map(s=>s.split(',').map(Number));
+ const dx=C[0]-A[0],dz=C[2]-A[2],length=Math.hypot(dx,dz),nx=-dz/length,nz=dx/length,heading=Math.atan2(dx,dz),cs=Math.cos(heading),sn=Math.sin(heading);
+ // Dimensions include the cabin's scale and its lowest floor surface.
+ const corners=[[0,0],[-.675,-.77625],[-.675,.77625],[.675,-.77625],[.675,.77625]];
+ for(let i=0;i<=1000;i++){
+  const u=i/1000,second=u>=.5,v=second?u*2-1:u*2,P=second?B:A,Q=second?C:B;
+  const position=P.map((q,k)=>q*(1-v)+Q[k]*v);position[1]-=Math.sin(v*Math.PI)*.2;
+  for(const lane of[-.9,.9])for(const sway of[-.03,.03])for(const[lx,lz]of corners){
+   const ly=-2.03835,localX=lx*Math.cos(sway)-ly*Math.sin(sway),localY=lx*Math.sin(sway)+ly*Math.cos(sway);
+   const x=position[0]+nx*lane+cs*localX+sn*lz,z=position[2]+nz*lane-sn*localX+cs*lz,bottom=position[1]+localY;
+   assert.ok(bottom-ridgeHeight(x,z)>.15,`cabin meets the mountain at u=${u}, lane=${lane}, sway=${sway}`);
+  }
+ }
+});
+
 test('skiers stay visible until the ground and fade only after landing',()=>{
  for(const phase of [0,6.3,12.6])for(let i=0;i<2000;i++){
   const t=i*.01,st=skiState(t,phase,0);
