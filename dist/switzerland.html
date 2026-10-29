@@ -23,9 +23,9 @@
 <link rel="stylesheet" href="world-shell.css"><link rel="stylesheet" href="swiss-worlds.css"><script type="module" src="world-shell.js"></script></head>
 <body class="world-shell swiss-world">
 <header class="world-header" id="world-header"><a class="world-back" href="index.html#destinations"><span aria-hidden="true">←</span> Back to the world</a><div class="world-meta"><span>Little Elsewhere &nbsp; / &nbsp; Switzerland · 08</span><span class="world-time"><i aria-hidden="true"></i><span>ZURICH · </span><time id="world-clock" aria-label="Zurich local time">--:--</time></span></div></header>
-<details class="world-notes" id="world-notes"><summary>World notes <span aria-hidden="true">↗</span></summary><div class="world-notes-panel"><h2>Alpine Village</h2><p class="world-notes-intro">Mountain trains run. Cable cars climb.</p><p>An imagined Swiss village brings a Matterhorn-inspired peak, skiers, red mountain train and cable cars together. Explore the lakeside, chocolate shop, watchmaker, cheese stall and village bank.</p><p>Drag to rotate. Scroll or pinch to zoom. Try Alpine cableway or Lakeside life. Skier View takes you from the summit to the village; Escape leaves the run. Snow on / Snow off controls the snowfall.</p><small>Clock uses Zurich local time. Scene lighting is controlled separately.</small></div></details>
+<details class="world-notes" id="world-notes"><summary>World notes <span aria-hidden="true">↗</span></summary><div class="world-notes-panel"><h2>Alpine Village</h2><p class="world-notes-intro">Mountain trains run. Cable cars climb.</p><p>An imagined Swiss village brings a Matterhorn-inspired peak, skiers, red mountain train and cable cars together. Explore the lakeside, ski-rental chalet, chocolate shop, watchmaker, cheese stall and village bank.</p><p>Drag to rotate. Scroll or pinch to zoom. Try Alpine cableway or Lakeside life. Skier View takes you from the summit to the village; Escape leaves the run. Snow on / Snow off controls the snowfall.</p><small>Clock uses Zurich local time. Scene lighting is controlled separately.</small></div></details>
 <div class="world-loading" id="world-loading"><div class="world-load-brand">LITTLE ELSEWHERE</div><h2>ALPENDORF</h2><p>Mountain trains run. Cable cars climb.</p><div class="world-load-line" aria-hidden="true"></div><p class="world-load-status" id="world-load-status" role="status">YOUR LITTLE WORLD IS COMING TO LIFE</p><div class="world-load-actions" hidden><a href="">Reload</a><a href="index.html#destinations">Back to the world</a></div><noscript><p>Enable JavaScript to explore this little world.</p><a href="index.html#destinations">Back to the world</a></noscript></div>
-<script type="application/json" id="world-shell-config">{"country": "Switzerland", "number": "08", "title": "ALPENDORF", "place": "Alpine Village", "clock": "ZURICH", "zone": "Europe/Zurich", "intro": "Mountain trains run. Cable cars climb.", "story": "An imagined Swiss village brings a Matterhorn-inspired peak, skiers, red mountain train and cable cars together. Explore the lakeside, chocolate shop, watchmaker, cheese stall and village bank.", "controls": "Drag to rotate. Scroll or pinch to zoom. Try Alpine cableway or Lakeside life. Skier View takes you from the summit to the village; Escape leaves the run. Snow on / Snow off controls the snowfall.", "timeNote": "Clock uses Zurich local time.", "id": "switzerland"}</script><script id="world-shell-fallback">setTimeout(()=>{if(window.__worldShellStarted)return;const status=document.querySelector('#world-load-status'),actions=document.querySelector('.world-load-actions'),loading=document.querySelector('#world-loading');if(status)status.textContent='Unable to load page controls. Please reload.';if(actions)actions.hidden=false;loading?.classList.add('has-error');},5000);</script>
+<script type="application/json" id="world-shell-config">{"country": "Switzerland", "number": "08", "title": "ALPENDORF", "place": "Alpine Village", "clock": "ZURICH", "zone": "Europe/Zurich", "intro": "Mountain trains run. Cable cars climb.", "story": "An imagined Swiss village brings a Matterhorn-inspired peak, skiers, red mountain train and cable cars together. Explore the lakeside, ski-rental chalet, chocolate shop, watchmaker, cheese stall and village bank.", "controls": "Drag to rotate. Scroll or pinch to zoom. Try Alpine cableway or Lakeside life. Skier View takes you from the summit to the village; Escape leaves the run. Snow on / Snow off controls the snowfall.", "timeNote": "Clock uses Zurich local time.", "id": "switzerland"}</script><script id="world-shell-fallback">setTimeout(()=>{if(window.__worldShellStarted)return;const status=document.querySelector('#world-load-status'),actions=document.querySelector('.world-load-actions'),loading=document.querySelector('#world-loading');if(status)status.textContent='Unable to load page controls. Please reload.';if(actions)actions.hidden=false;loading?.classList.add('has-error');},5000);</script>
 
 <div id="sky"></div><div id="stars"></div>
 <canvas id="view" tabindex="0" aria-label="Interactive Swiss Alpine village with mountain train, skiers and cable cars. Drag to rotate; scroll or pinch to zoom."></canvas>
@@ -152,7 +152,7 @@ path([[-15,9.4],[-11,9.4],[-7.8,9.3],[-4.6,7.6],[-4.6,4.8],[-5.0,3.8],[-7.7,2.7]
 const lakeWalk=new THREE.CatmullRomCurve3([[16.8,-1.5],[18.4,3.0],[17.5,9.4],[13.4,13.2],[7.8,13.7],[2.8,12.6]].map(([x,z])=>new THREE.Vector3(x,.9,z)));
 path([[16.8,-1.5],[18.4,3.0],[17.5,9.4],[13.4,13.2],[7.8,13.7],[2.8,12.6]],.95);path([[-4.5,8.2],[-2.2,10.5],[2.8,12.6]],.85);
 const signMaterials=[];
-function sign(text,sub,x,y,z,w,h,rotation=0,b=buckets){const t=texture(512,160,(c,W,H)=>{c.fillStyle='#344f50';c.fillRect(0,0,W,H);c.strokeStyle='#c7b692';c.lineWidth=3;c.strokeRect(8,8,W-16,H-16);c.fillStyle='#fff1d6';c.textAlign='center';c.textBaseline='middle';c.font='bold 55px Georgia';c.fillText(text,W/2,sub?57:80,W-32);if(sub){c.font='20px Arial';c.fillText(sub,W/2,121,W-30);}}),m=clean(toon('#fff',{map:t,emissiveMap:t,emissive:'#ffd29a',emissiveIntensity:.03,side:THREE.DoubleSide}));signMaterials.push(m);put(new THREE.PlaneGeometry(w,h),m,[x,y,z],[0,rotation,0],[1,1,1],b);}
+function sign(text,sub,x,y,z,w,h,rotation=0,b=buckets){const H=Math.max(160,Math.min(768,Math.round(1024*h/w))),t=texture(1024,H,(c,W,H)=>{c.fillStyle='#263f43';c.fillRect(0,0,W,H);c.strokeStyle='#dfcfaa';c.lineWidth=4;c.strokeRect(12,12,W-24,H-24);c.fillStyle='#fff5db';c.textAlign='center';c.textBaseline='middle';const fit=(value,size)=>{c.font=`700 ${size}px Arial,Helvetica,sans-serif`;return Math.min(size,size*(W-76)/Math.max(1,c.measureText(value).width));};let size=fit(text,H*(sub?.47:.72));c.font=`700 ${size}px Arial,Helvetica,sans-serif`;c.fillText(text,W/2,H*(sub?.37:.51));if(sub){size=fit(sub,H*.22);c.font=`600 ${size}px Arial,Helvetica,sans-serif`;c.fillText(sub,W/2,H*.78);}});t.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());const m=clean(toon('#fff',{map:t,emissiveMap:t,emissive:'#ffd29a',emissiveIntensity:0,side:THREE.DoubleSide}));signMaterials.push(m);put(new THREE.PlaneGeometry(w,h),m,[x,y,z],[0,rotation,0],[1,1,1],b);}
 // BEGIN SWISS CHALET REPLACEMENT
 // Drop-in replacement for windowUnit() and chalet(); no required new globals.
 // The original x/z/w/d/h/base contracts and chalet return object are preserved.
@@ -376,7 +376,7 @@ function chalet({x,z,w=3.5,d=3,h=2.8,base=.83,label='',sub='',roof=M.roof,balcon
 }
 // END SWISS CHALET REPLACEMENT
 
-const inn=chalet({x:-7.6,z:6.35,w:4,d:3.2,h:3.05,label:'Gasthaus',sub:'ALPENBLICK',roof:M.roofRed});const cafe=chalet({x:-2.7,z:2.2,w:3.3,d:2.8,h:2.5,label:'Café am See',sub:'KAFFEE · KUCHEN',balcony:false});chalet({x:-13,z:-5.0,w:3.4,d:2.7,h:2.75,label:'Bäckerei',sub:'BROT · SCHOKOLADE',roof:M.roofRed});chalet({x:-13.0,z:6.2,w:2.8,d:2.7,h:2.45});chalet({x:-17.0,z:6.7,w:2.6,d:2.4,h:2.5,balcony:false});chalet({x:-17.15,z:2.0,w:3.15,d:2.65,h:2.7,label:'Chocolat',sub:'CONFISERIE',roof:M.roofRed});chalet({x:-17.9,z:-6.0,w:2.6,d:2.4,h:2.65,label:'Banque',sub:'BANQUE SUISSE',roof:M.roof});chalet({x:-17.95,z:-1.8,w:2.6,d:2.4,h:2.65,label:'Horlogerie',sub:'UHREN · WATCHES',roof:M.roofRed});chalet({x:17.4,z:-5.4,w:2.8,d:2.3,h:2.5,label:'Bootshaus',sub:'LAC · SEE',balcony:false});
+const inn=chalet({x:-7.6,z:6.35,w:4,d:3.2,h:3.05,label:'Gasthaus',sub:'ALPENBLICK',roof:M.roofRed});const cafe=chalet({x:-2.7,z:2.2,w:3.3,d:2.8,h:2.5,label:'Café am See',sub:'KAFFEE · KUCHEN',balcony:false});chalet({x:-13,z:-5.0,w:3.4,d:2.7,h:2.75,label:'Bäckerei',sub:'BROT · SCHOKOLADE',roof:M.roofRed});chalet({x:-13.0,z:6.2,w:2.8,d:2.7,h:2.45});chalet({x:-17.0,z:6.7,w:2.6,d:2.4,h:2.5,balcony:false});chalet({x:-17.15,z:2.0,w:3.15,d:2.65,h:2.7,label:'Chocolat',sub:'CONFISERIE',roof:M.roofRed});chalet({x:-17.9,z:-6.0,w:2.6,d:2.4,h:2.65,label:'Banque',sub:'BANQUE SUISSE',roof:M.roof});chalet({x:-17.95,z:-1.8,w:2.6,d:2.4,h:2.65,label:'Horlogerie',sub:'UHREN · WATCHES',roof:M.roofRed});chalet({x:17.4,z:-5.4,w:2.8,d:2.3,h:2.5,label:'SKIHÜTTE',sub:'SKI · RENTAL',balcony:false});
 // A small alpine chapel and a canvas-painted clock.
 box(M.stone,-2.5,1.0,-3.7,3.1,.4,3.5);box(M.cream,-2.5,2.4,-3.7,2.7,2.7,3.1);const churchSlope=Math.atan2(1.3,1.6);for(const side of[-1,1])box(M.roof,-2.5+side*.8,4.4,-3.7,2.06,.14,3.6,[0,0,-side*churchSlope]);const tx=-1.8,tz=-2.6;box(M.cream,tx,3.65,tz,1.43,5.6,1.43);box(M.stone,tx,1.16,tz,1.62,.57,1.62);box(M.stone,tx,5.7,tz,1.57,.18,1.57);put(new THREE.ConeGeometry(1.2,2.0,4),M.roof,[tx,7.0,tz],[0,Math.PI/4,0]);rod(M.woodDark,[tx,7.95,tz],[tx,8.45,tz],.025);rod(M.woodDark,[tx-.15,8.28,tz],[tx+.15,8.28,tz],.025);box(M.woodDark,tx,1.55,tz+.74,.55,1.3,.09);
 const clockTex=texture(256,256,(c,w,h)=>{c.fillStyle='#fff2ce';c.beginPath();c.arc(128,128,122,0,TAU);c.fill();c.strokeStyle='#3b5552';c.lineWidth=8;c.stroke();c.lineWidth=4;for(let i=0;i<60;i++){const a=i/60*TAU;c.beginPath();c.moveTo(128+Math.sin(a)*(i%5?108:99),128-Math.cos(a)*(i%5?108:99));c.lineTo(128+Math.sin(a)*116,128-Math.cos(a)*116);c.stroke();}c.fillStyle='#3b5552';c.font='bold 25px Georgia';c.textAlign='center';c.textBaseline='middle';for(let i=1;i<=12;i++){const a=i/12*TAU;c.fillText(i,128+Math.sin(a)*79,128-Math.cos(a)*79);}c.lineCap='round';c.lineWidth=8;c.beginPath();c.moveTo(128,128);c.lineTo(96,91);c.stroke();c.lineWidth=5;c.beginPath();c.moveTo(128,128);c.lineTo(180,94);c.stroke();});const clockMat=clean(toon('#fff',{map:clockTex,emissiveMap:clockTex,emissive:'#ffdf9b',emissiveIntensity:.05}));for(let i=0;i<4;i++){const a=i*Math.PI/2;put(new THREE.CircleGeometry(.43,32),clockMat,[tx+Math.sin(a)*.728,5.2,tz+Math.cos(a)*.728],[0,a,0]);}
@@ -393,7 +393,13 @@ bench(-4.25,3.5,-.6);bench(-8.2,2.65,.45);bench(-1.4,7.1,-Math.PI/2);
 for(const x of[-3.1,-1.7]){cyl(M.woodLight,x,1.43,4.35,.4,.07,.4,14);cyl(M.dark,x,1.14,4.35,.04,.55);for(const side of[-1,1]){box(M.wood,x+side*.58,1.11,4.35,.33,.08,.33);for(const zz of[-.12,.12])rod(M.dark,[x+side*.58,.85,4.35+zz],[x+side*.58,1.12,4.35+zz],.02);box(M.wood,x+side*.58,1.39,4.17,.33,.49,.06);}cyl(M.white,x+.1,1.52,4.35,.07,.1,.07,8);}
 for(let j=0;j<3;j++){box(M.woodLight,-14+j*.52,1.12,-3.5,.45,.26,.36);for(let i=0;i<4;i++)blob(M.yellow,-14.12+j*.52+(i%2)*.19,1.32,-3.57+Math.floor(i/2)*.15,.11,.07,.055);}
 box(M.woodDark,-1.5,1.4,4.0,.5,.9,.06,[0,0,-.08]);sign('HEUTE','KÄSE · KUCHEN',-1.5,1.42,4.04,.44,.7);for(const x of[-5.3,-4.3])rod(M.woodDark,[x,.85,.1],[x,2.35,.1],.05);box(M.wood,-4.8,1.9,.1,1.2,.85,.1);sign('ALPENPOST','WANDERN · GENIESSEN',-4.8,1.9,.16,1.04,.7);
-rod(M.woodDark,[-.35,.85,-1.7],[-.35,3.0,-1.7],.055);for(const[text,y]of[['Bergbahn',2.72],['Seeweg',2.38],['Dorfplatz',2.04]]){box(M.woodLight,-.35,y,-1.7,1.35,.28,.07);sign(text,'',-.35,y,-1.65,1.25,.22);}
+// BEGIN SWISS WAYFINDING
+const wayfindingLayout={"x":-0.35,"z":-1.7,"width":2.05,"height":0.44,"rows":[["CABLEWAY",3.23,1],["LAKE",2.68,1],["VILLAGE",2.13,-1]]};
+rod(M.woodDark,[wayfindingLayout.x,.85,wayfindingLayout.z],[wayfindingLayout.x,3.63,wayfindingLayout.z],.06);
+const wayfindingPaint=toon('#d9b85b');
+for(const[label,y,direction]of wayfindingLayout.rows){const {x,z,width:w,height:h}=wayfindingLayout,shape=new THREE.Shape(),points=[[-w/2,-h/2],[w/2-.24,-h/2],[w/2,0],[w/2-.24,h/2],[-w/2,h/2]];points.forEach(([xx,yy],i)=>i?shape.lineTo(xx*direction,yy):shape.moveTo(xx*direction,yy));shape.closePath();const g=new THREE.ExtrudeGeometry(shape,{depth:.09,bevelEnabled:false});g.translate(0,0,-.045);put(g,wayfindingPaint,[x,y,z]);const tex=texture(1024,256,(c,W,H)=>{c.fillStyle='#f0cd67';c.fillRect(0,0,W,H);c.fillStyle='#172d35';c.textAlign='center';c.textBaseline='middle';let size=174;c.font=`700 ${size}px Arial,Helvetica,sans-serif`;size=Math.min(size,size*940/c.measureText(label).width);c.font=`700 ${size}px Arial,Helvetica,sans-serif`;c.fillText(label,W/2,H*.53);});tex.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());const material=clean(new THREE.MeshBasicMaterial({map:tex,toneMapped:false})),textX=x-direction*.12;for(const side of[-1,1])put(new THREE.PlaneGeometry(w-.42,h-.085),material,[textX,y,z+side*.062],[0,side<0?Math.PI:0,0]);}
+// END SWISS WAYFINDING
+
 // A broad wooden pier reaches the lake; a low arched footbridge crosses the inlet.
 for(let i=0;i<17;i++)box(M.woodLight,-.6+i*.17,1.01,6.5,.15,.13,1.05);for(const x of[-.5,1.95])for(const z of[6.02,6.98])rod(M.woodDark,[x,.35,z],[x,1.4,z],.055);for(const z of[6.02,6.98])rod(M.wood,[ -.5,1.4,z],[1.95,1.4,z],.025);
 box(M.water,1.7,.69,-1.0,1.4,.05,5.0);for(const x of[.86,2.54])box(M.stone,x,.79,-2.1,.2,.28,2.8);for(let i=0;i<10;i++){const z=-3.3+i*.25;rod(M.leaf,[.8,.9,z],[.82,1.15+(i%3)*.08,z+.08],.018);}for(let i=0;i<16;i++){const u=i/15,x=.3+u*3,y=.91+Math.sin(u*Math.PI)*.46;box(M.stone,x,y,-1.4,.23,.18,1.05);for(const side of[-1,1]){if(i%3===0)box(M.wood,x,y+.4,-1.4+side*.53,.08,.7,.08);if(i<15){const v=(i+1)/15;rod(M.wood,[x,y+.7,-1.4+side*.53],[.3+v*3,1.61+Math.sin(v*Math.PI)*.46,-1.4+side*.53],.035);}}}
@@ -417,7 +423,10 @@ function canPlaceConifer(x,z,s=1){const samples=[[0,0],[.65*s,0],[-.65*s,0],[0,.
 function conifer(x,z,s=1){if(!canPlaceConifer(x,z,s))return;rod(M.woodDark,[x,.84,z],[x,.9+2.5*s,z],.075*s);for(let tier=0;tier<4;tier++){const radius=(.70-tier*.13)*s,y=.98+(1+tier*.49)*s,g=new THREE.ConeGeometry(radius,1.25*s,8);const p=g.attributes.position;for(let i=0;i<p.count;i++){const yy=p.getY(i);if(yy<0){const a=Math.atan2(p.getZ(i),p.getX(i)),k=1+.065*Math.sin(a*3+tier);p.setXYZ(i,p.getX(i)*k,yy+.045*s*Math.cos(a*4+tier),p.getZ(i)*k);}}g.computeVertexNormals();put(g,tier%2?M.leaf:M.leafLight,[x,y,z],[0,tier*.37,0]);if(tier===3)put(new THREE.ConeGeometry(radius*.62,.42*s,8),M.snow,[x,y+.42*s,z]);}}
 for(const[x,z,s]of[[-15,-6,.9],[-14,-2,1],[-14,9,1],[-10,-7,.8],[-9,-6,1.2],[1.1,-5,.8],[3.0,-4.8,.9],[8.5,-3.4,1],[12.8,-2.8,.85],[-.8,9.5,.7]])conifer(x,z,s);
 function blossom(x,z,s=1,white=false){rod(M.woodDark,[x,.84,z],[x,2.5*s,z],.11*s);for(let i=0;i<5;i++){const a=i/5*TAU,xx=x+Math.cos(a)*.58*s,zz=z+Math.sin(a)*.58*s;rod(M.woodDark,[x,1.6*s,z],[xx,2.4*s,zz],.045*s);blob(white?M.bloomWhite:M.bloom,xx,2.65*s,zz,.62*s,.55*s,.6*s,1);}blob(white?M.bloomWhite:M.bloom,x,3.1*s,z,.66*s,.55*s,.62*s,1);}
-blossom(-11,9.3,.87);blossom(-3.8,5.7,.72,true);blossom(-14.4,-.4,.85,true);blossom(-8,3.5,.62);for(let i=0;i<80;i++){const x=rnd(-15.5,-.9),z=rnd(-.5,11.5);blob(i%3?M.bloomWhite:M.yellow,x,.91,z,.045,.07,.045);}
+// BEGIN SWISS TERRACE LAYOUT
+const cafeTerraceLayout={"blossom":{"x":-8.7,"z":12.2,"scale":0.78},"parasols":[[-3.25,5.55],[-1.65,5.45]],"parasolRadius":0.85};
+// END SWISS TERRACE LAYOUT
+blossom(-11,9.3,.87);blossom(cafeTerraceLayout.blossom.x,cafeTerraceLayout.blossom.z,cafeTerraceLayout.blossom.scale,true);blossom(-14.4,-.4,.85,true);blossom(-8,3.5,.62);for(let i=0;i<80;i++){const x=rnd(-15.5,-.9),z=rnd(-.5,11.5);blob(i%3?M.bloomWhite:M.yellow,x,.91,z,.045,.07,.045);}
 for(const[x,z]of[[-13,9.4],[-4.3,7.6],[-.7,3.8],[-8.7,-3.8]]){box(M.wood,x,1.0,z,.9,.25,.42);for(let i=0;i<8;i++)blob(i%3?M.bloom:M.bloomWhite,x+rnd(-.37,.37),1.2,z+rnd(-.13,.13),.075,.09,.07);}
 for(let i=0;i<10;i++)cyl(M.woodLight,-8.8+(i%5)*.17,.98+Math.floor(i/5)*.15,4.8,.085,.38,.085,7,[Math.PI/2,0,0]);for(let i=0;i<10;i++)box(M.woodLight,-15.2,1.26,5+i*.28,.08,.77,.09);for(const y of[1.1,1.5])rod(M.wood,[-15.2,y,5],[-15.2,y,7.6],.03);
 const lampPositions=[];function lamp(x,z,h=2.65){rod(M.dark,[x,.85,z],[x,h,z],.045);box(M.dark,x,h+.08,z,.35,.07,.35);box(M.lamp,x,h-.11,z,.22,.32,.22);cyl(M.dark,x,h+.17,z,.24,.13,0,4);lampPositions.push(new THREE.Vector3(x,h-.1,z));}for(const[x,z]of[[-9,8.6],[-3.1,4.4],[-.5,6.6],[-7.5,.5],[-10.9,3.7],[1.7,-.8]])lamp(x,z);lamp(4.4,-5.7,12.6);for(let i=0;i<7;i++){blob(M.lamp,-4.0+i*.35,2.7-Math.sin(i/6*Math.PI)*.2,4.05,.045,.06,.045);lampPositions.push(new THREE.Vector3(-4+i*.35,2.7,4.05));}
@@ -451,7 +460,7 @@ for(const [x,z] of [[-17.0,10.7],[-10.3,11.6]]){box(M.woodLight,x,1.42,z,1.5,.09
 for(const x of[15.5,16.3]){box(M.wood,x,.98,12.3,.6,.2,.44);box(M.woodLight,x,1.18,12.3,.55,.22,.4);}
 // Lake terrace: a modest shelter and tables with striped parasols.
 const parasolCanvas=texture(256,256,(c,w,h)=>{c.translate(w/2,h/2);for(let j=0;j<12;j++){const a=j*TAU/12;c.beginPath();c.moveTo(0,0);c.arc(0,0,128,a,a+TAU/12);c.closePath();c.fillStyle=j%2?'#f4ead2':'#b95340';c.fill();}}),parasolMaterial=toon('#fff',{map:parasolCanvas,side:THREE.DoubleSide});
-for(const [x,z] of [[-3.25,5.55],[-1.65,5.45]]){cyl(M.woodLight,x,1.46,z,.37,.07,.37,16);rod(M.dark,[x,.86,z],[x,2.45,z],.028);put(new THREE.ConeGeometry(.85,.29,12),parasolMaterial,[x,2.47,z]);for(const side of[-1,1]){box(M.wood,x+side*.52,1.05,z,.3,.07,.3);rod(M.dark,[x+side*.52,.86,z],[x+side*.52,1.08,z],.03);}}
+for(const [x,z] of cafeTerraceLayout.parasols){cyl(M.woodLight,x,1.46,z,.37,.07,.37,16);rod(M.dark,[x,.86,z],[x,2.45,z],.028);put(new THREE.ConeGeometry(cafeTerraceLayout.parasolRadius,.29,12),parasolMaterial,[x,2.47,z]);for(const side of[-1,1]){box(M.wood,x+side*.52,1.05,z,.3,.07,.3);rod(M.dark,[x+side*.52,.86,z],[x+side*.52,1.08,z],.03);}}
 // Layered stone edges and waterside steps connect the village to the pier.
 for(let i=0;i<9;i++){const x=-3.9+i*.29;box(i%2?M.rockLight:M.stone,x,.95,5.78,.27,.22,.3);}for(let i=0;i<5;i++)box(M.woodLight,1.9+i*.25,.93,7.6,.23,.09,.8);
 // Tiny Swiss wayfinding board, rubbish bin and stacked market crates.
@@ -470,6 +479,80 @@ for(let i=0;i<=60;i++){const x=-14.1+i*.47;box(M.woodDark,x,.93,15.15,.19,.15,1.
 for(const z of[14.82,15.48])rod(M.metal,[-14.15,1.045,z],[14.15,1.045,z],.055);
 for(let i=0;i<102;i++){const x=-14.1+i*.276;box(M.metal,x,1.03,15.15,.055,.08,.11);}
 box(M.stone,-14.8,.91,14.15,2.1,.16,.72);rod(M.woodDark,[-15.4,.96,14.15],[-15.4,2.38,14.15],.045);sign('BERGBAHN','MOUNTAIN RAILWAY',-15.4,2.09,14.23,1.6,.44);
+// BEGIN SWISS SKI LODGE GEAR
+// Insert before bake(buckets, staticRoot). Uses the scene's existing batching/material helpers.
+// Keeps the original chalet, foundation, actors and mountain terrain unchanged.
+function addSkiLodgeProps() {
+  // Both pockets are entirely in the level foreground strip (z > -4.5), ridgeHeight = .84.
+  // Rack bounds: x 14.61..16.09, z -3.86..-3.14, y .84..2.56.
+  // Gear back faces are >= .53 in front of the chalet's flower boxes (z = -3.9).
+  const ground = ridgeHeight(15.35, -3.5);
+  const rackZ = -3.62;
+  for (const x of [14.72, 15.98]) {
+    box(M.woodDark, x, ground + .70, rackZ, .09, 1.40, .09);
+    box(M.woodDark, x, ground + .055, -3.50, .20, .11, .72);
+  }
+  box(M.woodLight, 15.35, ground + 1.34, rackZ, 1.48, .10, .11);
+  box(M.wood, 15.35, ground + .83, rackZ, 1.39, .09, .10);
+  // A raised wooden trough visibly holds the ski/snowboard tails.
+  box(M.woodDark, 15.35, ground + .09, -3.27, 1.35, .14, .18);
+
+  function ski(x, material) {
+    // A single extruded side profile owns the blade and its upturned tip.
+    const profile = new THREE.Shape();
+    profile.moveTo(.0275, 0); profile.lineTo(-.0275, 0);
+    profile.lineTo(-.0275, 1.52); profile.lineTo(-.08, 1.67);
+    profile.lineTo(-.025, 1.67); profile.lineTo(.0275, 1.52); profile.closePath();
+    put(new THREE.ExtrudeGeometry(profile, {depth: .095, bevelEnabled: false, steps: 1}),
+      material, [x - .0475, ground + .04, -3.34], [0, Math.PI / 2, 0]);
+    // Bindings project forward, with .014 clearance from the blade's front face.
+    for (const y of [ground + .64, ground + .88]) {
+      box(M.dark, x, y, -3.2645, .11, .075, .068);
+      box(M.metal, x, y + .014, -3.2075, .07, .025, .022);
+    }
+  }
+  // Two paired alpine skis: a muted blue pair and the Swiss-red accent pair.
+  for (const dx of [-.072, .072]) ski(15.30 + dx, M.blue);
+  for (const dx of [-.072, .072]) ski(15.76 + dx, M.red);
+
+  // A broad rounded/tapered snowboard silhouette makes the rental function legible in orbit.
+  const board = new THREE.Shape();
+  board.moveTo(-.09, -.68); board.lineTo(.09, -.68);
+  board.quadraticCurveTo(.145, -.64, .145, -.53);
+  board.lineTo(.145, .53); board.quadraticCurveTo(.145, .68, .08, .71);
+  board.lineTo(-.08, .71); board.quadraticCurveTo(-.145, .68, -.145, .53);
+  board.lineTo(-.145, -.53); board.quadraticCurveTo(-.145, -.64, -.09, -.68);
+  board.closePath();
+  put(new THREE.ExtrudeGeometry(board, {depth: .05, bevelEnabled: false, steps: 1, curveSegments: 4}),
+    M.yellow, [14.87, ground + .79, -3.365]);
+  for (const y of [ground + .57, ground + .99]) {
+    // Nearest binding back face clears board front (-3.315) by .014.
+    box(M.dark, 14.87, y, -3.2635, .15, .11, .075);
+    box(M.metal, 14.87, y + .01, -3.205, .10, .035, .018);
+  }
+  // Small pegs support the blades from behind without touching any facade.
+  for (const x of [15.30, 15.76])
+    rod(M.metal, [x, ground + .83, -3.57], [x, ground + .83, -3.375], .021);
+
+  // Boot-changing bench: x 17.75..18.85, z -3.53..-3.07, y .84..1.69.
+  // Preserves an open central entrance corridor and clears the conifer at (19,-2).
+  const bx = 18.30, bz = -3.30, gy = ridgeHeight(bx, bz);
+  for (const dx of [-.43, .43]) for (const dz of [-.16, .16])
+    box(M.woodDark, bx + dx, gy + .205, bz + dz, .075, .41, .075);
+  // Three separated slats avoid overlapping top faces.
+  for (const dz of [-.16, 0, .16])
+    box(M.woodLight, bx, gy + .46, bz + dz, 1.10, .09, .14);
+  box(M.woodDark, bx, gy + .18, bz, .98, .065, .065);
+  for (const x of [18.10, 18.34]) {
+    box(M.dark, x, gy + .52, -3.25, .17, .04, .29); // rubber sole rests on seat
+    box(M.blue, x, gy + .605, -3.25, .15, .13, .26); // broad ski-boot toe
+    box(M.blue, x, gy + .73, -3.33, .14, .24, .15); // upright cuff
+    for (const y of [gy + .70, gy + .79])
+      box(M.metal, x, y, -3.229, .125, .025, .028); // buckles clear cuff by .012
+  }
+}
+addSkiLodgeProps();
+// END SWISS SKI LODGE GEAR
 bake(buckets,staticRoot);detailKit.flush();
 // Two grazing Alpine cows: animated heads, ears, legs and a small brass cowbell.
 const cowBrown=toon('#815946'),cowWhite=toon('#f0e8d4'),cowBell=toon('#d8af62');
