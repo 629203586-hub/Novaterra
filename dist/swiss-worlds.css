@@ -1,0 +1,55 @@
+/* Little Worlds 3D art direction, scoped to the Swiss destination. */
+body.swiss-world{--ink:#293f4d;--muted:#566b77;--glass:#e4e9e7e6;--line:#536c7d30;--accent:#a5774b;background:#bac6ce;color:var(--ink)}
+body.swiss-world #sky{background:radial-gradient(ellipse at 50% 38%,#d5dcdf 0%,#bcc8cf 62%,#a8b6c0 100%)}
+body.swiss-world #sky:after{background:radial-gradient(ellipse at 48% 32%,#192d48 0%,#0b182f 72%,#071123 100%)}
+body.swiss-world.night{--ink:#ecebe4;--muted:#afbfce;--glass:#15263ddb;--line:#b4c8df30;--accent:#deb987}
+body.swiss-world #stars{opacity:0;background-size:530px 390px}body.swiss-world.night #stars{opacity:.4}
+body.swiss-world .world-header{top:max(24px,env(safe-area-inset-top));left:30px;right:30px;align-items:flex-start}
+body.swiss-world .world-back{border-radius:8px;padding:10px 14px;min-height:39px;font-size:10px;letter-spacing:.35px;background:var(--glass);border:1px solid var(--line);box-shadow:0 5px 20px #23394a08}
+body.swiss-world .world-meta{font-size:8px;letter-spacing:2.2px;line-height:1.8;color:var(--muted)}
+body.swiss-world .world-time{font-size:10px;letter-spacing:1.3px;color:var(--ink)}
+body.swiss-world .world-time i{background:#709788}
+body.swiss-world .world-notes{right:30px;top:86px;font-size:10px;color:var(--muted)}
+body.swiss-world .world-notes summary{font-size:10px;letter-spacing:.3px}
+body.swiss-world .world-notes-panel{background:var(--glass);border-color:var(--line);border-radius:10px;color:var(--ink)}
+body.swiss-world .viewpoints{top:136px;right:30px;gap:6px;z-index:4}
+body.swiss-world .viewpoints button{border-radius:7px;padding:9px 12px;font-size:9px;letter-spacing:.2px;background:var(--glass);border:1px solid var(--line);transition:background .2s,transform .2s}
+body.swiss-world .viewpoints button:hover{transform:translateY(-1px)}
+body.swiss-world .viewpoints button[aria-pressed=true]{background:#c3d1d9;color:#2c4d63;border-color:#829eaf77}
+body.swiss-world.night .viewpoints button[aria-pressed=true]{background:#345c8055;color:#c2def4;border-color:#6488a755}
+body.swiss-world .title{left:34px;bottom:35px;right:auto;max-width:calc(100% - 55px);z-index:3}
+body.swiss-world .eyebrow{font-weight:400;font-size:8px;letter-spacing:2.8px;color:#856547;margin-bottom:11px}
+body.swiss-world.night .eyebrow{color:#ceb18b}
+body.swiss-world .title h1{font-size:clamp(26px,3.6vw,49px);line-height:1.08;letter-spacing:-1px;gap:0;white-space:nowrap}
+body.swiss-world .title h1 .slash{font:300 .65em Arial;opacity:.45;margin:0 10px}
+body.swiss-world .title h1 [lang=de-CH]{font-size:.72em;letter-spacing:-.3px;opacity:.85}
+body.swiss-world .title p{font-size:9px;letter-spacing:.25px;margin-top:12px;max-width:310px;line-height:1.6}
+body.swiss-world .toolbar-wrap{right:30px;bottom:27px;gap:9px;z-index:6}
+body.swiss-world .toolbar{padding:7px;gap:2px;border-radius:12px;background:var(--glass);border-color:var(--line);box-shadow:0 12px 40px #24384b14}
+body.swiss-world .toolbar button{min-width:60px;min-height:59px;padding:7px 10px;flex-direction:column;justify-content:center;gap:7px;font-size:9px;letter-spacing:.1px;border:1px solid transparent;border-radius:7px;transition:background .2s,transform .15s}
+body.swiss-world .toolbar button:active{transform:scale(.95)}
+body.swiss-world .toolbar button svg{width:20px;height:20px;stroke-width:1.3}
+body.swiss-world .toolbar button:hover{background:#7f9eb916}
+body.swiss-world .toolbar button[aria-pressed=true]{background:#799eb326;color:#2d5671;border-color:#8aa5b533}
+body.swiss-world.night .toolbar button[aria-pressed=true]{background:#4e84b52b;color:#c1ddf5;border-color:#7398bc40}
+body.swiss-world .sep{margin:10px 4px}
+body.swiss-world .weather-row{gap:7px}
+body.swiss-world .ski-view-button,body.swiss-world .snow-toggle{min-height:35px;border-radius:7px;padding:8px 12px;font-size:9px;letter-spacing:.25px;border-color:var(--line);box-shadow:none}
+body.swiss-world .ski-view-button{background:#405d70;color:#f2f0e8}
+body.swiss-world.night .ski-view-button{background:#c6b391;color:#233c52}
+body.swiss-world .snow-toggle{background:var(--glass)}
+body.swiss-world .snow-toggle[aria-pressed=true]{background:#dbe6e7e6}
+body.swiss-world.night .snow-toggle[aria-pressed=true]{background:#2a4361df}
+body.swiss-world .lift-status{font-size:8px;border:0;padding:6px 3px;background:transparent;backdrop-filter:none;letter-spacing:.3px}
+body.swiss-world .status{font-size:8px;letter-spacing:.35px;min-height:10px}
+body.swiss-world .hint{font-size:8px;letter-spacing:.9px;opacity:.7}
+body.swiss-world #toast{border-radius:8px;font-size:10px}
+body.swiss-world .ski-hud{background:#172c42e8;border-color:#d8e6f030;border-radius:12px}
+body.swiss-world #ski-veil{background:#cedbe1}
+body.swiss-world .ski-hud progress::-webkit-progress-value{background:#d5b388}
+body.swiss-world .ski-hud button{border-radius:7px;background:#ddc4a2;color:#253f51}
+body.swiss-world.ski-ride .world-header,body.swiss-world.ski-ride .world-notes,body.swiss-world.ski-ride .viewpoints,body.swiss-world.ski-ride .title{visibility:hidden}
+body.swiss-world.ski-ride .toolbar-wrap{z-index:65}
+@media(max-width:1100px){body.swiss-world .title{left:26px;bottom:144px}body.swiss-world .title h1{font-size:38px}body.swiss-world .title p{font-size:9px}body.swiss-world .toolbar-wrap{right:24px;bottom:23px}body.swiss-world .toolbar button{min-width:60px}body.swiss-world .hint{display:none}}
+@media(max-width:800px){body.swiss-world .world-header{left:21px;right:21px;top:max(20px,env(safe-area-inset-top))}body.swiss-world .world-back{min-height:36px;font-size:9px;padding:10px 12px}body.swiss-world .world-meta{font-size:7px;letter-spacing:1.2px}body.swiss-world .world-time{font-size:9px;letter-spacing:.6px}body.swiss-world .world-notes{top:83px;right:22px}body.swiss-world .viewpoints{top:127px;right:22px;gap:5px}body.swiss-world .viewpoints button{font-size:8px;padding:8px 10px}body.swiss-world .toolbar-wrap{left:20px;right:20px;bottom:max(18px,env(safe-area-inset-bottom));gap:8px;align-items:center}body.swiss-world .toolbar{width:100%;max-width:510px;justify-content:space-between;padding:5px}body.swiss-world .toolbar button{flex:1;min-width:0;min-height:57px;padding:7px 6px;font-size:9px}body.swiss-world .toolbar-wrap>.status{display:none}body.swiss-world .title{left:23px;bottom:151px}body.swiss-world .title h1{font-size:32px}body.swiss-world .title p{font-size:8px;margin-top:8px}body.swiss-world .eyebrow{font-size:7px;letter-spacing:2px;margin-bottom:8px}body.swiss-world .weather-row{justify-content:center}body.swiss-world .ski-view-button,body.swiss-world .snow-toggle{min-height:34px}}
+@media(max-width:480px){body.swiss-world .world-meta{max-width:155px;text-align:right}body.swiss-world .world-back{font-size:8px;padding:10px}body.swiss-world .viewpoints{left:21px;right:auto;top:131px}body.swiss-world .viewpoints button{font-size:8px;padding:8px 9px}body.swiss-world .world-notes{top:88px}body.swiss-world .title h1{font-size:29px}body.swiss-world .title h1 .slash{margin:0 7px}body.swiss-world .title h1 [lang=de-CH]{font-size:.7em}body.swiss-world .title{bottom:147px;max-width:calc(100% - 42px)}body.swiss-world .toolbar-wrap{left:13px;right:13px}body.swiss-world .toolbar button svg{width:19px;height:19px}body.swiss-world .toolbar button{font-size:8px;min-height:54px}body.swiss-world .weather-row #liftStatus{display:none}}

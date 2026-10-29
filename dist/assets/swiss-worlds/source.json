@@ -1,0 +1,16 @@
+{
+  "source": "https://github.com/Gerahamu/little-worlds-3d",
+  "commit": "99fc93e6522df2999ae5b5348afc45798e73ea5b",
+  "three": "0.180.0",
+  "reused": [
+    "src/core/materials.js",
+    "src/core/geometry.js",
+    "src/actors/models.js",
+    "vendor/three/build/three.module.js",
+    "vendor/three/build/three.core.js",
+    "vendor/three/examples/jsm/controls/OrbitControls.js",
+    "vendor/three/examples/jsm/utils/BufferGeometryUtils.js",
+    "vendor/three/examples/jsm/geometries/RoundedBoxGeometry.js"
+  ],
+  "adaptation": "Swiss scene reuses the material factory, geometry kit and batched character models; terrain, railway, cableway and first-person descent retain their authored paths."
+}
