@@ -3,11 +3,11 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {spawnSync} from 'node:child_process';
 import {formatClock,isSceneReady} from '../dist/world-shell.js';
-const pages=['japan','station','china','france','russia','greenland','germany','usa','switzerland','korea'];
+const pages=['japan','station','china','france','russia','greenland','germany','usa','switzerland','korea','london'];
 test('every open world has a clock, its own notes and the common loading screen',async()=>{
  const ids=new Set();
  for(const page of pages){const html=await readFile(new URL(`../dist/${page}.html`,import.meta.url),'utf8');const config=JSON.parse(html.match(/<script type="application\/json" id="world-shell-config">([\s\S]*?)<\/script>/)[1]);assert.ok(config.story&&config.controls&&config.timeNote);assert.doesNotThrow(()=>formatClock(new Date(),config.zone));assert.match(html,/id="world-clock"/);assert.match(html,/id="world-notes"/);assert.match(html,/id="world-loading"/);assert.match(html,/href="world-shell.css"/);assert.match(html,/src="world-shell.js"/);if(page!=='station')ids.add(config.id);}
- assert.equal(ids.size,9);
+ assert.equal(ids.size,10);
 });
 test('world clocks use each selected time zone and handle daylight saving changes',()=>{
  const now=new Date('2026-01-15T12:00:00Z');
