@@ -13,7 +13,7 @@ async function walk(dir,prefix='') {
   }
 }
 await walk(path.join(root,'dist'));
-for(const required of ['/index.html','/china.html','/japan.html','/france.html','/russia.html','/greenland.html','/germany.html','/usa.html','/switzerland.html','/korea.html'])if(!assets[required])throw Error(`Missing ${required}`);
+for(const required of ['/index.html','/china.html','/japan.html','/france.html','/russia.html','/greenland.html','/germany.html','/usa.html','/switzerland.html','/korea.html','/london.html'])if(!assets[required])throw Error(`Missing ${required}`);
 await mkdir(path.join(root,'dist/server'),{recursive:true});
 await mkdir(path.join(root,'dist/.openai'),{recursive:true});
 await writeFile(path.join(root,'dist/server/index.js'),`${await readFile(path.join(root,'worker/index.js'),'utf8')}\nexport default createSite(${JSON.stringify(assets)});\n`);
