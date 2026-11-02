@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Italian Hill Town / Vallenuova — Little Elsewhere</title><meta name="description" content="Wander through an interactive Italian hill town: terracotta roofs, a piazza fountain, cypress trees and a quiet golden hour.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23d4b687' d='M16 2 30 9v14l-14 7L2 23V9z'/%3E%3C/svg%3E">
+<style>:root{color-scheme:dark;--text:#f4f0e9;--muted:#b1bed0;--line:#cdd9f12b;--panel:#14223bc9;--active:#77b6df;--amber:#f8cf91}*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden}body{background:#11213b;font-family:Arial,sans-serif;color:var(--text)}#city{position:fixed;inset:0;touch-action:none}canvas{display:block;width:100%;height:100%;outline:none}button{font:inherit;color:inherit}button:focus-visible,summary:focus-visible{outline:2px solid var(--amber);outline-offset:4px}.frame{position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 43%,transparent 47%,#050d2030 100%)}.top{position:fixed;left:30px;right:30px;top:25px;display:flex;align-items:center;justify-content:space-between;pointer-events:none;font-size:9px;letter-spacing:2.6px;color:#c3cfe1}.top .brand{display:flex;align-items:center;gap:9px}.top svg{width:22px;color:#d7bd92}.top .status{display:flex;gap:9px;align-items:center;letter-spacing:1.4px}.status i{height:5px;width:5px;border-radius:50%;background:#a5d5bb;box-shadow:0 0 8px #a5d5bb55}.title{position:fixed;bottom:33px;left:35px;pointer-events:none}.title .kicker{font-size:9px;letter-spacing:2.6px;color:#d1b78f;margin-bottom:8px}.title h1{font:400 clamp(36px,4.5vw,65px)/1 Georgia,'Times New Roman',serif;letter-spacing:1px;margin:0 0 10px}.title h1 span{font:400 .43em 'Apple SD Gothic Neo',sans-serif;color:#ccd6e5;margin-left:13px;letter-spacing:3px}.title p{font-size:10px;letter-spacing:.7px;color:#bec9d9;margin:0}.toolbar{position:fixed;right:30px;bottom:29px;display:flex;align-items:center;gap:2px;padding:9px;border:1px solid #d7e2f136;background:var(--panel);border-radius:14px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 10px 40px #0003;z-index:3}.tool{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;padding:8px 14px;min-width:68px;min-height:63px;border:1px solid transparent;border-radius:7px;background:none;font-size:10px;cursor:pointer;transition:background .25s,color .25s}.tool svg{width:22px;height:22px;stroke:currentColor;stroke-width:1.3;fill:none}.tool:hover{background:#93b2dd13}.tool[aria-pressed=true]{background:#3c80b329;border-color:#639bd52d;color:#b9ddfa}.tool.mode[aria-pressed=true]{background:linear-gradient(150deg,#326a9c55,#1b518b77);color:white;border-color:#6aa0d73d}.divider{height:40px;width:1px;background:var(--line);margin:0 5px}.tiny-dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:#5faef1;margin-left:3px;vertical-align:1px;box-shadow:0 0 6px #5faef155}.tool[aria-pressed=false] .tiny-dot{background:#718399;box-shadow:none}.notes{position:fixed;right:30px;top:62px;z-index:4;max-width:275px;font-size:11px}.notes summary{list-style:none;text-align:right;color:#b2c0d5;cursor:pointer;padding:8px 0}.notes summary::-webkit-details-marker{display:none}.notes[open]{padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--panel);backdrop-filter:blur(20px)}.notes p{font-size:11px;line-height:1.8;color:#bdcadc;margin:8px 0}.notes b{color:#e9c895;font-weight:400}.hint{position:fixed;left:50%;top:27px;transform:translateX(-50%);font-size:9px;letter-spacing:1.2px;color:#a4b4cc;pointer-events:none}.toast{position:fixed;top:72px;left:50%;transform:translateX(-50%) translateY(-5px);border:1px solid var(--line);background:var(--panel);backdrop-filter:blur(15px);padding:10px 18px;border-radius:22px;font-size:11px;opacity:0;transition:.25s;pointer-events:none}.toast.show{opacity:1;transform:translateX(-50%)}#loading{position:fixed;inset:0;z-index:20;display:grid;place-content:center;background:#11213b;text-align:center;transition:opacity .6s}#loading h2{font:400 49px Georgia,serif;letter-spacing:5px;margin:0 0 18px}#loading p{font-size:10px;letter-spacing:2px;color:#b5c5db;margin:0 20px;line-height:2}#loading .line{width:120px;height:1px;background:#eac393;margin:23px auto}#loading.done{opacity:0;pointer-events:none}#error{font-size:12px;color:#f3c18e;line-height:1.8;max-width:480px;padding:0 20px}#fps{position:fixed;left:30px;top:62px;font:10px monospace;color:#b0dbc7;display:none;pointer-events:none}body[data-debug=true] #fps{display:block}body[data-time=day]{--text:#243b4b;--panel:#e0e7e5e8;--line:#27465729}body[data-time=day] .top,body[data-time=day] .title p,body[data-time=day] .title h1 span,body[data-time=day] .notes summary,body[data-time=day] .hint{color:#3d596b}body[data-time=day] .title .kicker{color:#78563a}body[data-time=day] .tool[aria-pressed=true]{color:#24577c}body[data-time=day] .tool.mode[aria-pressed=true]{background:#eacda3;color:#2a4558}body[data-time=day] .notes p{color:#3c5667}body[data-time=day] .notes b{color:#81542d}
+@media(max-width:1100px){.toolbar{right:20px;bottom:22px;padding:7px}.tool{min-width:56px;padding:8px 9px}.title{left:25px;bottom:30px}.title h1{font-size:42px}.title p{font-size:8px;letter-spacing:.2px}.title .kicker{font-size:8px}.hint{display:none}}
+@media(max-width:700px){.top{top:max(19px,env(safe-area-inset-top));left:20px;right:20px;font-size:8px;letter-spacing:1.5px}.top .status{letter-spacing:.5px;font-size:8px}.notes{top:47px;right:20px}.notes summary{font-size:10px}.toolbar{left:14px;right:14px;bottom:max(14px,env(safe-area-inset-bottom));padding:6px;justify-content:space-between;border-radius:12px;gap:1px}.tool{flex:1;min-width:0;min-height:57px;gap:7px;padding:7px 3px;font-size:8px}.tool svg{width:20px;height:20px}.divider{margin:0 2px;height:35px}.title{left:23px;bottom:calc(108px + env(safe-area-inset-bottom))}.title h1{font-size:36px;margin-bottom:8px}.title .kicker{font-size:7px;letter-spacing:1.7px}.title p{font-size:8px;letter-spacing:.15px}.toast{top:95px;font-size:10px;max-width:85vw;width:max-content}#fps{top:65px;left:20px;font-size:9px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* BORGO AL TRAMONTO — warm Italian skin over the shared shell.
+   Morning limestone, terracotta title, a golden-hour wash in between. */
+body{--warm:#b5563c;--warm-ink:#7a3a26;--cream:#f4ead8}
+body[data-time=day]{background:#e9e2d2;--text:#2f3f36;--muted:#7d8a7c;--panel:#f7f1e4ee;--line:#4a3f2b22}
+body[data-time=day] .top,body[data-time=day] .title p,body[data-time=day] .notes summary,body[data-time=day] .hint{color:#4d5b4a}
+body[data-time=day] .title h1{color:#2c3b32}
+body[data-time=day] .title .kicker{color:var(--warm)}
+body[data-time=day] .frame{background:radial-gradient(ellipse at 50% 42%,transparent 44%,#d8c8ab55 100%)}
+body[data-time=sunset]{color-scheme:dark;background:#3a2436;--text:#fbeee0;--panel:#3a2130d9;--line:#f4d3b02b;--active:#f0b070}
+body[data-time=sunset] .top,body[data-time=sunset] .title p,body[data-time=sunset] .notes summary,body[data-time=sunset] .hint{color:#f0d8c0}
+body[data-time=sunset] .title .kicker{color:#f5c48c}
+body[data-time=sunset] .title h1{color:#fff4e6}
+body[data-time=sunset] .status i{background:#f6c27a;box-shadow:0 0 8px #f6c27a66}
+body[data-time=sunset] .tool[aria-pressed=true]{background:#c47a3f33;border-color:#f0b0703d;color:#ffdcb0}
+body[data-time=sunset] .tool.mode[aria-pressed=true]{background:linear-gradient(150deg,#c8793f88,#8d4a2f99);color:#fff6ea;border-color:#f3c28b4d}
+body[data-time=day] .tool.mode[aria-pressed=true]{background:linear-gradient(150deg,#f0c98a,#d8a25e);color:#3a2a1c;border-color:#c08a4e55}
+body[data-time=day] .status i{background:#7fae86;box-shadow:0 0 8px #7fae8666}
+.title h1{font-family:Georgia,'Times New Roman',serif;letter-spacing:.5px}
+.title .kicker{letter-spacing:2.8px}
+.toolbar{border-radius:15px}
+.tool{border-radius:8px}
+
+/* Three-state agent controls: moving blue, paused amber, hidden gray. */
+.tool[data-mode=paused]{color:var(--amber);background:#ba884317;border-color:#ddb16c38}.tool[data-mode=paused] .tiny-dot{background:#e9ba6f;box-shadow:0 0 6px #e9ba6f44}.tool[data-mode=hidden] .tiny-dot{background:#718399;box-shadow:none}
+
+/* ---- Site-style world shell: back pill, breadcrumb, whole-world, caption ---- */
+.top{align-items:flex-start}
+.back{display:inline-flex;align-items:center;gap:9px;padding:11px 19px;border-radius:999px;border:1px solid #cdd9f136;background:#14223bc9;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);color:#eef3fa;text-decoration:none;font-size:11px;letter-spacing:.3px;pointer-events:auto;transition:background .25s,border-color .25s}
+.back span[aria-hidden]{font-size:14px;line-height:1;opacity:.85;transition:transform .25s}
+.back:hover{background:#1d3152d9;border-color:#8fb4e03d}
+.back:hover span[aria-hidden]{transform:translateX(-2px)}
+.meta{display:flex;flex-direction:column;align-items:flex-end;gap:7px;pointer-events:none}
+.crumb{font-size:9px;letter-spacing:2.4px;color:#c3cfe1}.crumb .sep{opacity:.45;padding:0 3px}
+.meta .status{font-size:9px;letter-spacing:1.5px;color:#c3cfe1}
+.whole{position:fixed;right:30px;top:110px;z-index:4;padding:9px 17px;border-radius:999px;border:1px solid #cdd9f136;background:#14223b8a;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);font-size:10px;letter-spacing:.6px;color:#c8d4e6;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.whole:hover{background:#1d3152d9;color:#fff;border-color:#8fb4e03d}
+.notes[open]+.whole{opacity:0;pointer-events:none}
+.caption{position:fixed;right:31px;bottom:133px;z-index:2;display:flex;align-items:center;gap:9px;font-size:10px;letter-spacing:.5px;color:#d6c6b2;pointer-events:none;transition:color .4s}
+.caption i{width:5px;height:5px;border-radius:50%;background:#f2c78a;box-shadow:0 0 8px #f2c78a66;flex:0 0 auto}
+.hint{position:fixed;left:auto;right:31px;top:auto;bottom:17px;transform:none;text-align:right;font-size:8.5px;letter-spacing:1.7px;color:#a4b4cc}
+.hint .sep{opacity:.45;padding:0 4px}
+.notes-intro{font-style:italic;color:#dccbb4!important}
+body[data-time=day] .back{background:#fbf5e8e8;border-color:#5a4a2f2b;color:#33463a}
+body[data-time=day] .back:hover{background:#fffaf0;border-color:#8b6a3f4d}
+body[data-time=day] .crumb,body[data-time=day] .meta .status{color:#4d5b4a}
+body[data-time=day] .whole{background:#fbf5e8c9;border-color:#5a4a2f2b;color:#3d4a3f}
+body[data-time=day] .whole:hover{background:#fffaf0;border-color:#8b6a3f4d;color:#243b2c}
+body[data-time=day] .caption{color:#6b5a44}
+body[data-time=day] .caption i{background:#b5563c;box-shadow:0 0 7px #b5563c55}
+body[data-time=day] .notes-intro{color:#6f5a3e!important}
+body[data-time=sunset] .caption{color:#e8cba9}
+@media(max-width:1100px){.whole{right:20px;top:100px}.caption{right:21px;bottom:122px}.hint{display:none}}
+@media(max-width:700px){.back{padding:9px 14px;font-size:10px}.meta{gap:5px}.crumb{font-size:8px;letter-spacing:1.6px}.meta .status{font-size:8px;letter-spacing:.8px}.whole{right:18px;top:92px;padding:8px 13px;font-size:9px}.caption{display:none}}
+
+/* ---- Sky: CSS gradient behind the transparent WebGL canvas ---- */
+body{background:#0d1626}
+body[data-time=day]{background:radial-gradient(ellipse 120% 90% at 50% 46%,#e7e6da 0%,#d5dedb 38%,#b8c9c9 70%,#93a7a8 100%)}
+body[data-time=sunset]{background:linear-gradient(180deg,#2b1b2c 0%,#5c3140 30%,#994c40 56%,#c86f45 78%,#e6a263 100%)}
+body[data-time=night]{background:
+ radial-gradient(1.4px 1.4px at 12% 14%,#dbe6ffcc,transparent 60%),
+ radial-gradient(1.2px 1.2px at 31% 8%,#c9d8f5aa,transparent 60%),
+ radial-gradient(1px 1px at 58% 16%,#dfe9ffbb,transparent 60%),
+ radial-gradient(1.6px 1.6px at 76% 9%,#c7d8f6aa,transparent 60%),
+ radial-gradient(1px 1px at 88% 21%,#e8f0ff99,transparent 60%),
+ radial-gradient(1.1px 1.1px at 44% 24%,#cfdcf7aa,transparent 60%),
+ radial-gradient(1px 1px at 8% 34%,#c9d7ef88,transparent 60%),
+ radial-gradient(ellipse 120% 90% at 50% 64%,#20344b 0%,#132338 46%,#0a1322 100%)}
+#loading{background:radial-gradient(ellipse 120% 90% at 50% 46%,#e9e6d8 0%,#d7ded9 40%,#b6c7c7 100%)}
+body[data-time=sunset] #loading{background:linear-gradient(180deg,#2b1b2c 0%,#5c3140 32%,#994c40 60%,#c86f45 82%,#e6a263 100%)}
+body[data-time=night] #loading{background:radial-gradient(ellipse 120% 90% at 50% 64%,#20344b 0%,#132338 46%,#0a1322 100%)}
+#loading h2{color:#2f3f36}body[data-time=sunset] #loading h2,body[data-time=night] #loading h2{color:#f6ecdf}
+</style>
+<script type="importmap">{"imports":{"lw/src/main.js":"./assets/italy-worlds/src/main.js","lw/project.config.js":"./assets/italy-worlds/project.config.js","lw/scene.js":"./assets/italy-worlds/scene.js","lw/vendor/three/build/three.module.js":"./assets/italy-worlds/vendor/three/build/three.module.js","lw/vendor/three/build/three.core.js":"./assets/italy-worlds/vendor/three/build/three.core.js","lw/src/world/terrain.js":"./assets/italy-worlds/src/world/terrain.js","lw/src/world/countryside.js":"./assets/italy-worlds/src/world/countryside.js","lw/src/core/runtime.js":"./assets/italy-worlds/src/core/runtime.js","lw/vendor/three/examples/jsm/controls/OrbitControls.js":"./assets/italy-worlds/vendor/three/examples/jsm/controls/OrbitControls.js","lw/vendor/three/examples/jsm/postprocessing/EffectComposer.js":"./assets/italy-worlds/vendor/three/examples/jsm/postprocessing/EffectComposer.js","lw/vendor/three/examples/jsm/shaders/CopyShader.js":"./assets/italy-worlds/vendor/three/examples/jsm/shaders/CopyShader.js","lw/vendor/three/examples/jsm/postprocessing/ShaderPass.js":"./assets/italy-worlds/vendor/three/examples/jsm/postprocessing/ShaderPass.js","lw/vendor/three/examples/jsm/postprocessing/Pass.js":"./assets/italy-worlds/vendor/three/examples/jsm/postprocessing/Pass.js","lw/vendor/three/examples/jsm/postprocessing/MaskPass.js":"./assets/italy-worlds/vendor/three/examples/jsm/postprocessing/MaskPass.js","lw/vendor/three/examples/jsm/postprocessing/RenderPass.js":"./assets/italy-worlds/vendor/three/examples/jsm/postprocessing/RenderPass.js","lw/vendor/three/examples/jsm/postprocessing/UnrealBloomPass.js":"./assets/italy-worlds/vendor/three/examples/jsm/postprocessing/UnrealBloomPass.js","lw/vendor/three/examples/jsm/shaders/LuminosityHighPassShader.js":"./assets/italy-worlds/vendor/three/examples/jsm/shaders/LuminosityHighPassShader.js","lw/vendor/three/examples/jsm/postprocessing/OutputPass.js":"./assets/italy-worlds/vendor/three/examples/jsm/postprocessing/OutputPass.js","lw/vendor/three/examples/jsm/shaders/OutputShader.js":"./assets/italy-worlds/vendor/three/examples/jsm/shaders/OutputShader.js","lw/src/core/materials.js":"./assets/italy-worlds/src/core/materials.js","lw/src/core/geometry.js":"./assets/italy-worlds/src/core/geometry.js","lw/vendor/three/examples/jsm/utils/BufferGeometryUtils.js":"./assets/italy-worlds/vendor/three/examples/jsm/utils/BufferGeometryUtils.js","lw/vendor/three/examples/jsm/geometries/RoundedBoxGeometry.js":"./assets/italy-worlds/vendor/three/examples/jsm/geometries/RoundedBoxGeometry.js","lw/src/core/random.js":"./assets/italy-worlds/src/core/random.js","lw/src/core/lighting.js":"./assets/italy-worlds/src/core/lighting.js","lw/src/world/signage.js":"./assets/italy-worlds/src/world/signage.js","lw/src/world/architecture.js":"./assets/italy-worlds/src/world/architecture.js","lw/src/world/props.js":"./assets/italy-worlds/src/world/props.js","lw/src/world/architecture-italy.js":"./assets/italy-worlds/src/world/architecture-italy.js","lw/src/world/props-italy.js":"./assets/italy-worlds/src/world/props-italy.js","lw/src/actors/models.js":"./assets/italy-worlds/src/actors/models.js","lw/src/systems/simulation.js":"./assets/italy-worlds/src/systems/simulation.js","lw/src/ui/toolbar.js":"./assets/italy-worlds/src/ui/toolbar.js","lw/src/actors/ferrari.js":"./assets/italy-worlds/src/actors/ferrari.js","lw/src/systems/inspection.js":"./assets/italy-worlds/src/systems/inspection.js"}}</script>
+<!-- Three.js 0.180.0 license
+The MIT License
+
+Copyright © 2010-2025 three.js authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+-->
+<style>
+body[data-time=sunset]{color-scheme:light;--text:#34483f;--panel:#f7f0e5ed;--line:#76665333;background:#eadcc9}
+body[data-time=sunset] .title h1{color:#34483f}
+body[data-time=sunset] .title p,body[data-time=sunset] .top,body[data-time=sunset] .notes summary,body[data-time=sunset] .hint,body[data-time=sunset] .crumb,body[data-time=sunset] .caption{color:#59675f}
+body[data-time=sunset] .title .kicker{color:#9b6246}
+body[data-time=sunset] .tool[aria-pressed=true]{color:#725331;background:#e5ceb14d;border-color:#a987543d}
+body[data-time=sunset] .tool.mode[aria-pressed=true]{color:#58432d;background:#e7cfab;border-color:#b7935540}
+body[data-time=sunset] .frame{background:none}
+body[data-time=sunset] #loading{background:linear-gradient(#b8c8d1,#f4dfc7)}
+body[data-time=sunset] #loading h2{color:#34483f}
+</style><link rel="stylesheet" href="world-shell.css"><link rel="stylesheet" href="italy-world.css"><script type="module" src="world-shell.js"></script></head><body class="world-shell italy-world" data-time="sunset"><header class="world-header" id="world-header"><a class="world-back" href="index.html#destinations"><span aria-hidden="true">←</span> Back to the world</a><div class="world-meta"><span>Little Elsewhere &nbsp; / &nbsp; Italy · 10</span><span class="world-time"><i aria-hidden="true"></i><span>ROME · </span><time id="world-clock" aria-label="Rome local time">--:--</time></span></div></header><details class="world-notes" id="world-notes"><summary>World notes <span aria-hidden="true">↗</span></summary><div class="world-notes-panel"><h2>Vallenuova</h2><p class="world-notes-intro">A slow afternoon in a little Italian hill town.</p><p>Terracotta roofs, cypress trees, a piazza fountain and a little café terrace. This is an imagined Italian hill town, inspired by the warm stone villages of central Italy.</p><p>Drag to rotate; scroll or pinch to zoom. Light cycles through day, sunset and night. Traffic and People cycle through moving, paused and hidden. Pause stops village life. Tap the red sports car to inspect it. Keys: 1 / 2 / 3 light, R reset, Space pause.</p><small>Clock uses local time in Rome, including daylight saving. Scene lighting is controlled separately.</small></div></details><div class="world-loading" id="world-loading"><div class="world-load-brand">LITTLE ELSEWHERE</div><h2>VALLENUOVA</h2><p>A slow afternoon in a little Italian hill town.</p><div class="world-load-line" aria-hidden="true"></div><p class="world-load-status" id="world-load-status" role="status">YOUR LITTLE WORLD IS COMING TO LIFE</p><div class="world-load-actions" hidden><a href="">Reload</a><a href="index.html#destinations">Back to the world</a></div><noscript><p>Enable JavaScript to explore this little world.</p><a href="index.html#destinations">Back to the world</a></noscript></div><script type="application/json" id="world-shell-config">{"country": "Italy", "number": "10", "title": "VALLENUOVA", "place": "Vallenuova", "clock": "ROME", "zone": "Europe/Rome", "intro": "A slow afternoon in a little Italian hill town.", "story": "Terracotta roofs, cypress trees, a piazza fountain and a little café terrace. This is an imagined Italian hill town, inspired by the warm stone villages of central Italy.", "controls": "Drag to rotate; scroll or pinch to zoom. Light cycles through day, sunset and night. Traffic and People cycle through moving, paused and hidden. Pause stops village life. Tap the red sports car to inspect it. Keys: 1 / 2 / 3 light, R reset, Space pause.", "timeNote": "Clock uses local time in Rome, including daylight saving. Scene lighting is controlled separately.", "id": "italy"}</script><script id="world-shell-fallback">setTimeout(()=>{if(window.__worldShellStarted)return;const status=document.querySelector('#world-load-status'),actions=document.querySelector('.world-load-actions'),loading=document.querySelector('#world-loading');if(status)status.textContent='Unable to load page controls. Please reload.';if(actions)actions.hidden=false;loading?.classList.add('has-error');},5000);</script><main id="city" aria-label="Vallenuova, an Italian hill town in miniature"></main><div class="frame"></div>
+
+
+
+
+<nav class="viewpoints" aria-label="Scene tools"><button id="reset" type="button" aria-label="Reset view">Whole world</button></nav>
+<section class="title"><div class="kicker">SLOW DAYS, A LITTLE ELSEWHERE</div><h1 id="world-title">Little World</h1><p id="subtitle"></p></section>
+<div class="toolbar-wrap"><p class="scene-status" id="caption" aria-live="off">A quiet afternoon in the piazza.</p><nav class="toolbar" aria-label="World controls"><button class="tool" id="time" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><span>Sunset</span></button><button class="tool" id="orbit" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="12" rx="10" ry="5" transform="rotate(-25 12 12)"/><circle cx="12" cy="12" r="2"/></svg><span>Orbit</span></button><button class="tool" id="traffic" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 8 2-4h10l2 4M4 8h16v9H4zM7 17v3m10-3v3M7 12h2m6 0h2"/></svg><span>Traffic</span></button><button class="tool" id="people" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2.5"/><path d="M12 8v7m0-4-5 3m5-3 5 3m-5 1-4 6m4-6 4 6"/></svg><span>People</span></button><button class="tool" id="life" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg><span>Pause</span></button></nav><div class="hint">DRAG TO WANDER · SCROLL TO ZOOM</div></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div><div id="loading"><h2 id="loading-title">Little World</h2><p id="loading-text">THE WORLD IS WAKING UP</p><div class="line"></div><div id="error" role="alert"></div></div>
+<script>
+function showStartError(message){if(window.littleWorld?.ready)return;document.querySelector('#loading-text').textContent='Unable to start this world';document.querySelector('#error').textContent=message;}
+addEventListener('error',e=>showStartError(e.message||'A required source file could not be loaded.'),true);
+addEventListener('unhandledrejection',e=>showStartError(e.reason?.message||String(e.reason)));
+</script>
+<script type="module">import "lw/src/main.js";</script></body></html>

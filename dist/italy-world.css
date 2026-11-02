@@ -1,0 +1,39 @@
+/* Italy uses the same country shell; its quiet golden hour stays local. */
+body.italy-world{color-scheme:light;--text:#284c48;--panel:#f5f8edee;--line:#5575662b}
+body.italy-world[data-shell-theme=sunset]{--shell-ink:#34483f;--shell-muted:#627568;--shell-glass:#faf5e9e8;--shell-line:#7666532b;--shell-accent:#ac6545}
+.italy-world .frame{background:none!important}
+.italy-world .title{z-index:10;left:30px;bottom:35px;max-width:calc(100vw - 650px);color:var(--shell-ink)}
+.italy-world .title .kicker{color:var(--shell-muted);font-size:8px;letter-spacing:2px}
+.italy-world .title h1{font:400 clamp(25px,2.9vw,43px)/1.18 Georgia,serif;letter-spacing:-1px;color:var(--shell-ink);margin:0 0 10px;text-wrap:balance}
+.italy-world .title h1 span{font:inherit;letter-spacing:inherit;margin:0;color:inherit}
+.italy-world .title h1 .slash{opacity:.45;padding:0 5px}
+.italy-world .title p{color:var(--shell-muted);font:11px/1.7 Arial,sans-serif;letter-spacing:.2px}
+.italy-world .toolbar-wrap{position:fixed;right:30px;bottom:max(22px,env(safe-area-inset-bottom));z-index:20;display:flex;flex-direction:column;align-items:flex-end;gap:10px;max-width:calc(100vw - 40px)}
+.italy-world .toolbar{position:static;display:flex;gap:3px;padding:7px;border-radius:18px;box-shadow:0 8px 32px #11273710;background:var(--shell-glass);border:1px solid var(--shell-line);backdrop-filter:blur(16px)}
+.italy-world .toolbar .tool{border-radius:12px;min-width:73px;min-height:64px;font-size:10px;gap:7px;padding:9px 13px;color:var(--shell-ink);border:1px solid transparent;background:none;cursor:pointer}
+.italy-world .toolbar .tool svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.3}
+.italy-world .toolbar .tool:hover{background:#8da79b18}.italy-world .toolbar .tool[aria-pressed=true]{color:var(--shell-ink);background:#89a9ac1c;border-color:transparent}
+.italy-world .toolbar .tool[data-mode=paused]{background:#cc9b5824;color:#99672c}.italy-world .toolbar .tool[data-mode=hidden]{opacity:.55}
+.italy-world .scene-status{font:10px/1.6 Arial,sans-serif;color:var(--shell-muted);margin:0 4px;text-align:right;max-width:400px}
+.italy-world .hint{position:static;transform:none;text-align:right;color:var(--shell-muted);font-size:8px;letter-spacing:1.3px}
+.italy-world .viewpoints{position:fixed;left:30px;top:129px;z-index:20;pointer-events:none}
+.italy-world .viewpoints button{min-height:44px;padding:11px 17px;border:1px solid var(--shell-line);border-radius:30px;background:var(--shell-glass);color:var(--shell-ink);font:11px Arial,sans-serif;cursor:pointer;pointer-events:auto;backdrop-filter:blur(14px);transition:background .18s,transform .18s}
+.italy-world button:focus-visible{outline:2px solid var(--shell-accent);outline-offset:4px}.italy-world .viewpoints button:active{transform:scale(.97)}
+.italy-world .toast{z-index:50;top:100px;color:var(--shell-ink);background:var(--shell-glass);border-color:var(--shell-line)}
+.italy-world .world-notes-panel{width:300px}.italy-world .world-notes-panel p{color:var(--shell-muted)}
+@media(max-width:1250px){.italy-world .title{bottom:var(--world-title-bottom,160px)!important;max-width:calc(100vw - 60px)}.italy-world .title h1{font-size:34px}.italy-world .toolbar-wrap{gap:7px}.italy-world .hint{display:none}}
+@media(max-width:700px){.italy-world .title{left:22px;max-width:calc(100vw - 44px)}.italy-world .title h1{font-size:clamp(24px,6.5vw,34px);letter-spacing:-.7px;margin-bottom:7px}.italy-world .title p{font-size:10px}.italy-world .title .kicker{font-size:7px;letter-spacing:1.5px}.italy-world .toolbar-wrap{left:14px;right:14px;bottom:max(14px,env(safe-area-inset-bottom));max-width:none;gap:8px}.italy-world .toolbar{width:100%;padding:6px;justify-content:space-between;gap:1px}.italy-world .toolbar .tool{flex:1;min-width:0;min-height:59px;padding:8px 5px;font-size:9px}.italy-world .scene-status{font-size:9px;max-width:100%;align-self:center}.italy-world .viewpoints{left:20px}.italy-world .world-notes-panel{width:275px}.italy-world .fi-overlay .fi-card{max-width:calc(100vw - 28px)}}
+@media(max-height:570px) and (min-width:701px){.italy-world .title{bottom:30px!important;max-width:calc(100vw - 470px)}.italy-world .title h1{font-size:25px}.italy-world .scene-status{display:none}.italy-world .toolbar .tool{min-width:59px;min-height:56px}}
+@media(prefers-reduced-motion:reduce){.italy-world *{scroll-behavior:auto;transition:none!important}}
+/* The retained vehicle detail view follows the country UI's palette and layering. */
+body.italy-world .fi-btn,body.italy-world .fi-title,body.italy-world .fi-back,body.italy-world .fi-chips,body.italy-world .fi-hint{background:var(--shell-glass);border-color:var(--shell-line);color:var(--shell-ink);box-shadow:0 8px 32px #11273710}
+body.italy-world .fi-btn b,body.italy-world .fi-title h2,body.italy-world .fi-title h2 b,body.italy-world .fi-back,body.italy-world .fi-chip{color:var(--shell-ink)}
+body.italy-world .fi-btn small,body.italy-world .fi-meta{color:var(--shell-muted)}
+body.italy-world .fi-btn svg,body.italy-world .fi-kicker,body.italy-world .fi-title h2 i{color:var(--shell-accent);stroke:var(--shell-accent)}
+body.italy-world .fi-btn{bottom:172px;border-radius:30px;padding:11px 18px}
+body.italy-world .fi-root.fi-active{z-index:70}
+body.italy-world.ferrari-inspect .world-header,body.italy-world.ferrari-inspect .world-notes,body.italy-world.ferrari-inspect .viewpoints,body.italy-world.ferrari-inspect .toolbar-wrap{opacity:0;visibility:hidden;pointer-events:none}
+@media(max-width:700px){body.italy-world .fi-btn{right:16px;bottom:calc(var(--world-title-bottom,220px) + 90px);padding:10px 15px}body.italy-world .fi-btn small{display:none}body.italy-world .fi-title{right:16px;top:75px}body.italy-world .fi-back{min-height:44px}body.italy-world .fi-chip{min-height:44px;letter-spacing:.3px}}
+body.italy-world .fi-chip{font:10px/1.3 Arial,sans-serif;letter-spacing:.8px;min-height:44px}
+body.italy-world .fi-back{font:11px/1.3 Arial,sans-serif;letter-spacing:.5px;min-height:44px}
+@media(max-width:700px){body.italy-world .fi-chip{font-size:8px;letter-spacing:0;min-width:0;overflow-wrap:anywhere}body.italy-world .fi-chips{max-width:calc(100vw - 28px)}body.italy-world .fi-back{font-size:10px}}
