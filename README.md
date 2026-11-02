@@ -32,3 +32,5 @@ Open http://127.0.0.1:8766. The preview uses a local SQLite database under `work
 The included `.openai/hosting.json` uses a local placeholder rather than the original live site's identifier. For a new deployment, configure the hosting environment and a D1-compatible database. Static-only hosting will not provide shared likes. Do not commit credentials, personal databases, `node_modules/`, or deployment secrets.
 
 Third-party notices are in `THIRD_PARTY_LICENSES.txt` and `dist/assets/`.
+
+Italy / Vallenuova is now available at `/italy` and `/italy.html`. The editable scene and vendored Three.js modules are in `dist/assets/italy-worlds/`; the country shell uses `world-shell.*` and `italy-world.css`. Export an offline copy with `python3 scripts/export-italy.py /absolute/output/italy.html`. The scene is an imagined Italian hill town.
