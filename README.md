@@ -1,4 +1,45 @@
-# little-elsewhere
+<div align="center">
+
+![Novaterra — A world at your pace](docs/showcase/novaterra-header.svg)
+
+**Interactive miniature worlds, made for wandering.**  
+**在微缩世界里，慢慢发现远方。**
+
+Formerly Little Elsewhere · 原 Little Elsewhere
+
+[![Explore Novaterra](docs/showcase/explore-novaterra.svg)](https://little-elsewhere-vance.chenvance.chatgpt.site/)
+
+[Open the website · 直接进入网站](https://little-elsewhere-vance.chenvance.chatgpt.site/) · [Browse the worlds · 探索目的地](https://little-elsewhere-vance.chenvance.chatgpt.site/#destinations)
+
+</div>
+
+> **Public website / 正式网址：** [Novaterra — Explore the world](https://little-elsewhere-vance.chenvance.chatgpt.site/)  
+> 无需下载或启动本地服务器，点击即可在浏览器中体验。网站当前仍显示 Little Elsewhere 品牌。
+
+[![Italy / Vallenuova — actual scene preview](docs/showcase/italy-preview.png)](https://little-elsewhere-vance.chenvance.chatgpt.site/italy)
+
+| Explore / 探索 | Stay a little / 慢一点 | Collect / 留下足迹 |
+| :--- | :--- | :--- |
+| Drag and zoom the globe to choose a destination. 拖动地球，寻找下一站。 | Discover miniature architecture, local details and animated everyday life. 看建筑、风景与日常。 | Revisit destinations through the passport and surprise draw. 用护照与随机探索开启旅程。 |
+
+### A few places to begin · 从这里出发
+
+| Destination | Visit | Destination | Visit |
+| :--- | :--- | :--- | :--- |
+| 🇯🇵 Japan / 日本 | [Harukaze Station](https://little-elsewhere-vance.chenvance.chatgpt.site/japan) | 🇨🇭 Switzerland / 瑞士 | [Alpine Village](https://little-elsewhere-vance.chenvance.chatgpt.site/switzerland) |
+| 🇮🇹 Italy / 意大利 | [Vallenuova](https://little-elsewhere-vance.chenvance.chatgpt.site/italy) | 🇬🇱 Greenland / 格林兰 | [Coastal world](https://little-elsewhere-vance.chenvance.chatgpt.site/greenland) |
+| 🇫🇷 France / 法国 | [Paris](https://little-elsewhere-vance.chenvance.chatgpt.site/france) | 🇰🇷 South Korea / 韩国 | [Seoul](https://little-elsewhere-vance.chenvance.chatgpt.site/korea) |
+
+Each place has its own architecture, atmosphere and small interactions. Drag to orbit, scroll to zoom, and try the scene controls.  
+每一个目的地都有自己的建筑、氛围和互动。拖动旋转、滚轮缩放，使用场景下方的控制栏。
+
+Canada is developed separately in [standalone/canada/](standalone/canada/) and is not connected to the public website yet.  
+加拿大目前保留为独立作品，尚未接入主站。
+
+<details>
+<summary><strong>For developers · 本地运行、源码与部署</strong></summary>
+
+## Project source
 
 Little Elsewhere is an interactive collection of miniature worlds. This repository contains the current website source, the shared destination pages, and the local preview server. The independently developed Canada scene is under `standalone/canada/`; it is not connected to the website yet.
 
@@ -34,3 +75,17 @@ The included `.openai/hosting.json` uses a local placeholder rather than the ori
 Third-party notices are in `THIRD_PARTY_LICENSES.txt` and `dist/assets/`.
 
 Italy / Vallenuova is now available at `/italy` and `/italy.html`. The editable scene and vendored Three.js modules are in `dist/assets/italy-worlds/`; the country shell uses `world-shell.*` and `italy-world.css`. Export an offline copy with `python3 scripts/export-italy.py /absolute/output/italy.html`. The scene is an imagined Italian hill town.
+
+
+</details>
+
+[Original README archive · 原始说明存档](docs/showcase/README-before-showcase-2026-11-02.md) · [Third-party notices](THIRD_PARTY_LICENSES.txt)
+
+---
+
+<div align="center">
+
+**Somewhere new is one click away.**  
+[Explore Novaterra →](https://little-elsewhere-vance.chenvance.chatgpt.site/)
+
+</div>
