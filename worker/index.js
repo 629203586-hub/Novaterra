@@ -1,4 +1,4 @@
-export const COUNTRY_IDS = ['japan', 'china', 'france', 'switzerland', 'morocco', 'iceland', 'russia', 'greenland', 'germany', 'usa', 'korea', 'italy'];
+export const COUNTRY_IDS = ['japan', 'china', 'france', 'switzerland', 'morocco', 'iceland', 'russia', 'greenland', 'germany', 'usa', 'korea', 'italy', 'uk'];
 const COOKIE = 'elsewhere_visitor';
 const encoder = new TextEncoder();
 async function digest(value) {
