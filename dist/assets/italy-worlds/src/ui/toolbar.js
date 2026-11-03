@@ -9,11 +9,11 @@ export function bindToolbar(ctx,simulation){
  light.querySelector('span').textContent={day:'Day',sunset:'Sunset',night:'Night'}[preset];light.setAttribute('aria-label',`Time of day: ${preset}. Switch to ${{day:'sunset',sunset:'night',night:'day'}[preset]}.`);
  const cap=config.lighting.captions?.[preset];if(cap)document.querySelector('#caption').textContent=cap;
  orbit.setAttribute('aria-pressed',String(state.orbit));pause.setAttribute('aria-pressed',String(state.paused));pause.querySelector('span').textContent=state.paused?'Play':'Pause';pause.setAttribute('aria-label',state.paused?'Resume scene animation':'Pause scene animation');
- for(const kind of['traffic','people']){const b=document.querySelector('#'+kind),mode=state[kind+'Mode'];b.dataset.mode=mode;b.setAttribute('aria-pressed',mode==='active'?'true':mode==='paused'?'mixed':'false');b.setAttribute('aria-label',`${kind}: ${mode}. Click to ${{active:'pause',paused:'hide',hidden:'resume'}[mode]}.`);b.title=b.getAttribute('aria-label');}}
+ for(const kind of['traffic','people']){const b=document.querySelector('#'+kind),mode=state[kind+'Mode'];b.dataset.mode=mode;b.setAttribute('aria-pressed',mode==='active'?'true':mode==='paused'?'mixed':'false');b.setAttribute('aria-label',`${kind==='traffic'?'Traffic':'People'}: ${mode==='active'?'moving':mode}. Click to ${{active:'pause',paused:'hide',hidden:'resume'}[mode]}.`);b.title=b.getAttribute('aria-label');}}
  function setTime(preset){state.night=preset==='night';state.preset=preset;ctx.lighting?.setTime?.(preset);refresh();}
  listen(light,'click',()=>setTime({day:'sunset',sunset:'night',night:'day'}[state.preset]||'day'));
  listen(orbit,'click',()=>{ctx.setOrbit(!state.orbit);refresh();});
- for(const kind of['traffic','people'])listen(document.querySelector('#'+kind),'click',()=>{toast(`${kind}: ${simulation.cycle(kind)}`);refresh();});
+ for(const kind of['traffic','people'])listen(document.querySelector('#'+kind),'click',()=>{const mode=simulation.cycle(kind);toast(`${kind==='traffic'?'Traffic':'People'}: ${{active:'moving',paused:'paused',hidden:'hidden'}[mode]}`);refresh();});
  listen(document.querySelector('#reset'),'click',()=>{ctx.reset();toast('The whole Italian hill town');});
  listen(pause,'click',()=>{state.paused=!state.paused;refresh();});
  listen(window,'keydown',e=>{if(/INPUT|TEXTAREA|BUTTON|SELECT/.test(e.target.tagName))return;if(e.key==='1')setTime('day');if(e.key==='2')setTime('sunset');if(e.key==='3')setTime('night');if(e.key.toLowerCase()==='r')ctx.reset();if(e.code==='Space'){e.preventDefault();state.paused=!state.paused;refresh();toast(state.paused?'World paused':'World resumed');}});

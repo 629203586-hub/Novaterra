@@ -130,24 +130,24 @@ export function createFerrariInspection(ctx, ferrari, opts = {}) {
         <path d="M25.8 13.4c.6 0 1 .5 1 1.1v1.6c0 .7-.5 1.2-1.2 1.2h-1"/>
         <circle cx="8" cy="15.4" r="2.1"/><circle cx="20" cy="15.4" r="2.1"/>
       </svg>
-      <span class="fi-btn-txt"><b>INSPECT FERRARI</b><small>VEHICLE MODE</small></span>
+      <span class="fi-btn-txt"><b>Inspect Ferrari</b><small>Vehicle details</small></span>
     </button>
     <div class="fi-overlay" aria-hidden="true" inert>
       <div class="fi-title">
-        <div class="fi-kicker">VEHICLE INSPECTION</div>
-        <h2>FERRARI <i>·</i> <b>INSPECTION</b></h2>
-        <div class="fi-meta"><span>ROSSO CORSA</span><s>·</s><span>MID ENGINE</span><s>·</s><span>TWO SEATS</span></div>
+        <div class="fi-kicker">Vehicle inspection</div>
+        <h2>Ferrari <i>·</i> <b>Details</b></h2>
+        <div class="fi-meta"><span>Rosso corsa</span><s>·</s><span>Mid engine</span><s>·</s><span>Two seats</span></div>
       </div>
-      <button class="fi-back" type="button"><i>←</i> BACK TO TOWN</button>
+      <button class="fi-back" type="button"><i>←</i> Back to scene</button>
       <div class="fi-chips" role="group" aria-label="Inspect a part of the car">
-        <button class="fi-chip" type="button" data-hotspot="wheels" aria-pressed="false">WHEELS</button>
-        <button class="fi-chip" type="button" data-hotspot="interior" aria-pressed="false">INTERIOR</button>
-        <button class="fi-chip" type="button" data-hotspot="engine" aria-pressed="false">ENGINE</button>
-        <button class="fi-chip" type="button" data-hotspot="rear" aria-pressed="false">REAR</button>
-        <button class="fi-chip" type="button" data-hotspot="lights" aria-pressed="false">LIGHTS</button>
-        <button class="fi-chip fi-door-control" type="button" aria-pressed="false">OPEN DOOR</button>
+        <button class="fi-chip" type="button" data-hotspot="wheels" aria-pressed="false">Wheels</button>
+        <button class="fi-chip" type="button" data-hotspot="interior" aria-pressed="false">Interior</button>
+        <button class="fi-chip" type="button" data-hotspot="engine" aria-pressed="false">Engine</button>
+        <button class="fi-chip" type="button" data-hotspot="rear" aria-pressed="false">Rear</button>
+        <button class="fi-chip" type="button" data-hotspot="lights" aria-pressed="false">Lights</button>
+        <button class="fi-chip fi-door-control" type="button" aria-pressed="false">Open door</button>
       </div>
-      <div class="fi-hint"><i></i> DRAG TO ORBIT · SCROLL TO ZOOM · ESC TO EXIT</div>
+      <div class="fi-hint"><i></i> Drag to rotate · Scroll to zoom · Esc to exit</div>
       <div class="fi-vignette"></div>
     </div>`;
   document.body.appendChild(root);
@@ -325,7 +325,7 @@ export function createFerrariInspection(ctx, ferrari, opts = {}) {
     ensureContactShadow();
     clearChips();
     hintEl.textContent = '';
-    hintEl.innerHTML = '<i></i> DRAG TO ORBIT · SCROLL TO ZOOM · ESC TO EXIT';
+    hintEl.innerHTML = '<i></i> Drag to rotate · Scroll to zoom · Esc to exit';
     const view = viewFor(INITIAL_DIR, tmp2.set(0, .52, 0));
     startTween({pos: view.pos, target: view.target, zoom: state.baseZoom}, 1.5, () => {
       if (state.mode !== 'entering') return;
@@ -434,8 +434,8 @@ export function createFerrariInspection(ctx, ferrari, opts = {}) {
       car.doorPivot.toggle();
       clearChips();
       hintEl.innerHTML = car.doorPivot.isOpen
-        ? '<i></i> DOOR OPEN · CLICK AGAIN TO CLOSE · ESC TO EXIT'
-        : '<i></i> DRAG TO ORBIT · SCROLL TO ZOOM · ESC TO EXIT';
+        ? '<i></i> Door open · Click again to close · Esc to exit'
+        : '<i></i> Drag to rotate · Scroll to zoom · Esc to exit';
     }
   }
   function onPointerMove(e) {
@@ -475,7 +475,7 @@ export function createFerrariInspection(ctx, ferrari, opts = {}) {
   function update(dt) {
     refreshCar();
     car.doorPivot?.update(dt);
-    doorButton.textContent=car.doorPivot.isOpen?'CLOSE DOOR':'OPEN DOOR';
+    doorButton.textContent=car.doorPivot.isOpen?'Close door':'Open door';
     doorButton.setAttribute('aria-pressed',String(car.doorPivot.isOpen));
 
     if (state.mode !== 'idle' && state.saved) {
