@@ -26,7 +26,7 @@ export function createRuntime(config){
   // Keep the whole diorama in frame on tall/narrow screens instead of only
   // widening for wide ones: wide screens get extra vertical room, phones get
   // extra horizontal room.
-  const h=a<1?Math.max(cc.viewHeight,112/a):cc.viewHeight*(a>1.9?1.18:1);camera.left=-h*a/2;camera.right=h*a/2;camera.top=h/2;camera.bottom=-h/2;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);composer.setSize(innerWidth,innerHeight);}
+  const h=a<1?Math.max(cc.viewHeight/1.12,102/a):cc.viewHeight*(a>1.9?1.18:1)/1.12;camera.left=-h*a/2;camera.right=h*a/2;camera.top=h/2;camera.bottom=-h/2;camera.setViewOffset(innerWidth,innerHeight,0,innerHeight*(a<1?.06:.025),innerWidth,innerHeight);camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);composer.setSize(innerWidth,innerHeight);}
  function reset(instant=false){const d=controls.enableDamping;controls.enableDamping=false;controls.update();controls.enableDamping=d;holdOrbitUntil=performance.now()+6500;if(instant||reduced){camera.position.copy(homePosition);controls.target.copy(homeTarget);camera.zoom=1;camera.updateProjectionMatrix();controls.update();}else resetting={start:performance.now(),from:camera.position.clone(),target:controls.target.clone(),zoom:camera.zoom};}
  const onStart=()=>{resetting=null;holdOrbitUntil=performance.now()+10000;};controls.addEventListener('start',onStart);
  const onReduced=e=>{reduced=e.matches;if(reduced){state.orbit=false;state.paused=true;}};reducedQuery.addEventListener('change',onReduced);

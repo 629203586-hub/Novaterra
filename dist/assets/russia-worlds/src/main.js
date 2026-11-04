@@ -30,7 +30,7 @@ function homePose(){
  const test=camera.clone();test.clearViewOffset();test.aspect=aspect;test.updateProjectionMatrix();const corners=[];
  for(const x of[-21,21])for(const z of[-17.7,17.7])for(const y of[-1.4,.8])corners.push(new T.Vector3(x,y,z));
  corners.push(new T.Vector3(CATHEDRAL.x,CATHEDRAL.height,CATHEDRAL.z),new T.Vector3(-11,16,-3.9),new T.Vector3(13.4,11,-13));
- for(let attempt=0;attempt<5;attempt++){test.position.copy(p);test.lookAt(t);test.updateMatrixWorld();let fit=1;for(const c of corners){const q=c.clone().project(test);fit=Math.max(fit,Math.abs(q.x)/.9,q.y/(aspect<.85?.54:.66),-q.y/(aspect<.85?.42:.67));}if(fit<=1.001)break;p.sub(t).multiplyScalar(Math.min(2.4,fit*1.01)).add(t);}
+ for(let attempt=0;attempt<5;attempt++){test.position.copy(p);test.lookAt(t);test.updateMatrixWorld();let fit=1;for(const c of corners){const q=c.clone().project(test);fit=Math.max(fit,Math.abs(q.x)/1.02,q.y/(aspect<.85?.54:.66),-q.y/(aspect<.85?.42:.67));}if(fit<=1.001)break;p.sub(t).multiplyScalar(Math.min(2.4,fit*1.01)).add(t);}
  return{p,t};
 }
 function stopMomentum(){const p=camera.position.clone(),t=controls.target.clone(),damp=controls.enableDamping;controls.autoRotate=false;controls.enableDamping=false;controls.update();controls.enableDamping=damp;camera.position.copy(p);controls.target.copy(t);controls.update();}
@@ -42,7 +42,7 @@ document.querySelector('#light').addEventListener('click',()=>{state.mode=state.
 const start=()=>{flight=null;hold=performance.now()+9000;};controls.addEventListener('start',start);addEventListener('keydown',onKey);
 function onKey(e){if(e.key==='Home'&&e.target===canvas)preset('overview');}
 function onReduce(e){reduced=e.matches;if(reduced){orbit(false);state.paused=true;state.snow=false;UI();}}q.addEventListener('change',onReduce);
-function resize(){const w=innerWidth,h=innerHeight;renderer.setSize(w,h);composer.setSize(w,h);controls.maxDistance=w/h<.85?260:110;camera.aspect=w/h;camera.fov=w/h<.85?40:36;camera.far=w/h<.85?360:260;camera.updateProjectionMatrix();{const{p,t}=homePose();camera.position.copy(p);controls.target.copy(t);flight=null;controls.update();}scene.fog.near=camera.position.distanceTo(controls.target)+20;scene.fog.far=scene.fog.near+100;}
+function resize(){const w=innerWidth,h=innerHeight;renderer.setSize(w,h);composer.setSize(w,h);controls.maxDistance=w/h<.85?260:110;camera.aspect=w/h;camera.fov=w/h<.85?40:T.MathUtils.radToDeg(2*Math.atan(Math.tan(T.MathUtils.degToRad(36)/2)/1.10));camera.far=w/h<.85?360:260;camera.setViewOffset(w,h,0,h*(w/h<.85?.04:.025),w,h);camera.updateProjectionMatrix();{const{p,t}=homePose();camera.position.copy(p);controls.target.copy(t);flight=null;controls.update();}scene.fog.near=camera.position.distanceTo(controls.target)+20;scene.fog.far=scene.fog.near+100;}
 addEventListener('resize',resize);const onLost=e=>{e.preventDefault();lost=true;document.querySelector('#status').textContent='Graphics paused. Restoring the scene…';},onRestore=()=>{lost=false;UI();};canvas.addEventListener('webglcontextlost',onLost);canvas.addEventListener('webglcontextrestored',onRestore);
 let frames=0,frameTime=0,slow=0,stats={};function animate(now){if(disposed)return;raf=requestAnimationFrame(animate);const raw=(now-last)/1000,dt=Math.min(.05,Math.max(0,raw));last=now;if(document.hidden||lost)return;
  if(!state.paused&&!reduced){state.time+=dt;if(state.snow)state.snowTime+=dt;life.update(state.time);}else if(!state.paused&&state.snow)state.snowTime+=dt;
