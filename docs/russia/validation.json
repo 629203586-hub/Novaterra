@@ -1,0 +1,133 @@
+{
+  "initial": {
+    "calls": 234,
+    "triangles": 1714980,
+    "textures": 36,
+    "geometries": 80,
+    "static": {
+      "calls": 40,
+      "triangles": 791952
+    },
+    "renderer": "Three.js 0.180 · WebGL2",
+    "blend": 0,
+    "shadowResolution": 2048,
+    "snowCount": 1900,
+    "lighting": "PBR · ACES · generated environment",
+    "flight": false,
+    "people": 20,
+    "vehicles": 3,
+    "camera": [
+      -38.687087425237394,
+      33.00000000000003,
+      55.52840341544993
+    ],
+    "target": [
+      0,
+      3,
+      -0.1
+    ],
+    "quality": "high",
+    "reducedMotion": false
+  },
+  "noSeparateInspection": true,
+  "motionControls": true,
+  "orbitAngles": 8,
+  "layouts": [
+    {
+      "width": 390,
+      "scroll": 390,
+      "title": {
+        "x": 22,
+        "y": 647.875,
+        "w": 334.265625,
+        "h": 69.125,
+        "bottom": 717,
+        "right": 356.265625
+      },
+      "wrap": {
+        "x": 14,
+        "y": 737.109375,
+        "w": 362,
+        "h": 92.890625,
+        "bottom": 830,
+        "right": 376
+      },
+      "buttons": [
+        {
+          "width": 68,
+          "height": 59
+        },
+        {
+          "width": 68,
+          "height": 59
+        },
+        {
+          "width": 68,
+          "height": 59
+        },
+        {
+          "width": 68,
+          "height": 59
+        },
+        {
+          "width": 68,
+          "height": 59
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "scroll": 320,
+      "title": {
+        "x": 22,
+        "y": 624.8125,
+        "w": 276,
+        "h": 92.1875,
+        "bottom": 717,
+        "right": 298
+      },
+      "wrap": {
+        "x": 14,
+        "y": 737.109375,
+        "w": 292,
+        "h": 92.890625,
+        "bottom": 830,
+        "right": 306
+      },
+      "buttons": [
+        {
+          "width": 54,
+          "height": 59
+        },
+        {
+          "width": 54,
+          "height": 59
+        },
+        {
+          "width": 54,
+          "height": 59
+        },
+        {
+          "width": 54,
+          "height": 59
+        },
+        {
+          "width": 54,
+          "height": 59
+        }
+      ]
+    }
+  ],
+  "reduced": {
+    "mode": "golden",
+    "paused": true,
+    "orbit": false,
+    "snow": false,
+    "time": 0,
+    "snowTime": 0,
+    "quality": "high",
+    "reduced": true
+  },
+  "offline": true,
+  "errors": []
+}
