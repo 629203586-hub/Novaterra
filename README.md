@@ -89,3 +89,5 @@ Italy / Vallenuova is now available at `/italy` and `/italy.html`. The editable 
 [Explore Novaterra →](https://little-elsewhere-vance.chenvance.chatgpt.site/)
 
 </div>
+
+Brazil / Bonde da Tarde is available at `/brazil` and `/brazil.html`, from the destination list and Brazil on the globe. The integrated V4 export preserves the one-way uphill tram, terrain and original controls. It includes the shared shell, Rio local time, translations, passport and likes (`brazil`).
