@@ -1,0 +1,74 @@
+{
+  "date": "2026-11-05",
+  "browser": "Installed desktop Google Chrome via Playwright, headless",
+  "viewports": [
+    [
+      1440,
+      1000
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "modes": [
+    "day",
+    "sunset",
+    "night"
+  ],
+  "angles": [
+    "home",
+    "riverfront closeup",
+    "Liziba closeup",
+    "rear",
+    "20 moving camera positions around a full circle"
+  ],
+  "pageErrors": [],
+  "movementObserved": true,
+  "controlResults": {
+    "people": "paused",
+    "traffic": "paused",
+    "reducedMotion": {
+      "paused": true,
+      "orbit": false
+    }
+  },
+  "offline": {
+    "errors": [],
+    "requests": [],
+    "result": {
+      "ready": true,
+      "mode": "sunset",
+      "toast": "Next train approaching Liziba.",
+      "render": {
+        "calls": 322,
+        "mainCalls": 277,
+        "triangles": 447610,
+        "textures": 43
+      }
+    }
+  },
+  "railClearance": {
+    "samples": 1200,
+    "violations": [],
+    "violationCount": 0,
+    "treeViolations": [],
+    "stationClearance": {
+      "side": 0.48,
+      "roof": 0.7599999999999998,
+      "wheelAboveConcrete": 0.019999999999997797,
+      "wheelSideGapFromRail": 0.13000000000000003
+    },
+    "trackLength": 50.26744279117637
+  },
+  "existingTests": {
+    "passed": 67,
+    "failed": 0
+  },
+  "limits": [
+    "Physical phones, GPU frame time and prolonged mobile performance were not tested.",
+    "Rail checks sample conservative car envelopes against recorded structure footprints; they are not an exact triangle-level collision proof.",
+    "Water reflection proxies include selected static architecture; moving boats, train and instanced foliage are not mirrored.",
+    "The miniature compresses distinct Chongqing locations into an artistic composition."
+  ]
+}

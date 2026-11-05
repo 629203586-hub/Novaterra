@@ -1,0 +1,21 @@
+# Chongqing miniature — visual research and composition revision
+
+Date: 2026-11-05. This is a Chongqing-inspired, compressed miniature, not a geographically faithful reconstruction. Liziba, Hongyadong and Raffles City are intentionally brought into one scene. All dimensions are visual estimates at miniature scale. No photos, external models, or runtime image downloads are used in the scene.
+
+## Compared versions
+
+The original China HTML was preserved in the ignored working folder before replacement. Its strengths were a complete peninsula silhouette, river wrapping the city, continuous terraced galleries, warm roofs and a red bridge. The first rebuilt version retained more facade detail but weakened those relationships with a wide rectangular platform, disconnected tall blocks, a blank station podium, dark roofs and gray water. The revision restores the original composition's hierarchy while retaining the new authored windows, balcony rails, tiled eaves, articulated actors and vehicles.
+
+## Photographs actually inspected
+
+- [iChongqing: Hongyadong](https://www.ichongqing.info/attraction/hongyadong/). Inspected the full-size `stilted-buildings-daytime.jpg`, `stilted-buildings-sunshine.jpg`, and `stilted-buildings-day.jpg` photographs from its gallery. Observed stepped construction against a cliff; continuous timber galleries and lattice screens; plaster infill; closely spaced tiled roofs; lanterns; lower riverside traffic; planted cliff shoulders. Model decisions: three linked terraces, timber structure, a varied upper silhouette, detailed side and rear facades, river road and separate promenade. The warm lower roofs deliberately retain the user's preferred first-version palette; real photographs also show charcoal-gray tiles.
+- [Travel China: Hongyadong](https://www.travelchina.org.cn/en/article/vF1cJZaYCtX8). Official tourism source confirming the stacked cliffside and top-to-bottom circulation. Used as structural context, not as measured architectural drawings.
+- [Original Liziba photo essay](https://woshixiao.hateblo.jp/entry/2025/05/16/232943). Inspected the original photo [20250510175930.jpg](https://cdn-ak.f.st-hatena.com/images/fotolife/W/WoshiXiao/20250510/20250510175930.jpg). Observed pale residential upper floors, tan podium, red trim, green-and-white monorail, an actual open train passage and nearby green slope. Model decisions: separated upper/lower volumes, an unobstructed guideway opening, podium windows, connected track piers and a three-car train. Train and station details are simplified, not a precise rolling-stock replica.
+- [Raffles City photograph and architecture article](https://www.metalocus.es/en/news/safdie-architects-raffles-city-chongqing-opens-worlds-longest-sidescraper). Inspected the full-size [published photograph](https://www.metalocus.es/sites/default/files/metalocus_safdie-architects_sidescraper-china_open_02.jpg). Observed slender paired heights and the long glazed sky conservatory. The miniature uses four simplified supports and a connected ribbed conservatory, as a secondary skyline motif.
+- [Hongyadong riverfront image search result and original photo page](https://viajista.com/2025/03/20/chongqing-hongyadong/). Viewed search evidence showing terraced buildings and the adjacent red bridge. The page timed out; not counted as a full-resolution reference inspection.
+
+Photography dates are unknown except where the source identifies one. Ground-level photos are not interactive Street View. Unseen facades, engineering members, indoor layouts and exact terrain profiles are authored inferences. A wider first-version-style river palette is an artistic choice, not a claim that the actual Jialing River is always turquoise.
+
+## Reused framework
+
+The installed `little-worlds-3d` starter supplies the vendored Three.js 0.180.0 dependency, three-step toon material system, geometry batching, character and vehicle factories, authored-path simulation and camera control. Chongqing architecture, terrain, routes, boats, monorail and lighting are authored adapters. The procedural soft-water implementation was adapted from the installed `visual-polish` asset, including a clipped island footprint and reduced reflection strength. The offline wrapper invokes the bundled Little Worlds HTML exporter; it does not rebuild a separate export graph implementation.
