@@ -55,7 +55,7 @@ export function createSoftWater({
       varying vec4 vpProjected;\n` + shader.fragmentShader;
     shader.fragmentShader = shader.fragmentShader.replace('#include <opaque_fragment>', `
       float grazing=pow(1.0-clamp(dot(normal,normalize(vViewPosition)),0.0,1.0),3.0);
-      outgoingLight=mix(outgoingLight,vpSky,.20+.25*grazing);
+      outgoingLight=mix(outgoingLight,vpSky,.09+.16*grazing);
       if(vpReady>.5 && vpProjected.w>0.0){
         vec2 uv=vpProjected.xy/vpProjected.w;
         vec2 bend=vec2(sin(uv.y*125.0+vpTime*.62),cos(uv.x*90.0+vpTime*.41))*vpDistortion;

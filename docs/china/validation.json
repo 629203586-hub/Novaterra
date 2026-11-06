@@ -1,6 +1,14 @@
 {
-  "date": "2026-11-05",
-  "browser": "Installed desktop Google Chrome via Playwright, headless",
+  "date": "2026-11-06",
+  "direction": "Restore the saved original full Chongqing composition using Little Worlds and new lighting",
+  "browser": "Installed desktop Google Chrome through Playwright, headless",
+  "provenance": {
+    "originalSha": "fc00b1232f0546cd0c894c6e1ae0f8867eafc64c1b0869779f57282ac5ee7f77",
+    "terrainHeight": 10.875,
+    "scale": 1.45,
+    "heritageBlocks": 21,
+    "towers": 15
+  },
   "viewports": [
     [
       1440,
@@ -9,29 +17,235 @@
     [
       390,
       844
+    ],
+    [
+      320,
+      844
     ]
   ],
-  "modes": [
+  "lighting": [
     "day",
     "sunset",
     "night"
   ],
-  "angles": [
+  "cameraChecks": [
     "home",
-    "riverfront closeup",
-    "Liziba closeup",
-    "rear",
-    "20 moving camera positions around a full circle"
+    "Hongyadong close-up",
+    "Liziba close-up",
+    "16 sampled positions around the full circle"
   ],
   "pageErrors": [],
-  "movementObserved": true,
-  "controlResults": {
-    "people": "paused",
-    "traffic": "paused",
-    "reducedMotion": {
-      "paused": true,
-      "orbit": false
+  "responsive": [
+    {
+      "width": 390,
+      "overflow": false,
+      "buttons": [
+        {
+          "id": "time",
+          "x": 20,
+          "y": 704,
+          "right": 87.59375,
+          "bottom": 762.5,
+          "width": 67.59375,
+          "height": 58.5
+        },
+        {
+          "id": "orbit",
+          "x": 90.59375,
+          "y": 704,
+          "right": 158.1875,
+          "bottom": 762.5,
+          "width": 67.59375,
+          "height": 58.5
+        },
+        {
+          "id": "train",
+          "x": 161.1875,
+          "y": 704,
+          "right": 228.796875,
+          "bottom": 762.5,
+          "width": 67.609375,
+          "height": 58.5
+        },
+        {
+          "id": "fog",
+          "x": 231.796875,
+          "y": 704,
+          "right": 299.390625,
+          "bottom": 762.5,
+          "width": 67.59375,
+          "height": 58.5
+        },
+        {
+          "id": "lights",
+          "x": 302.390625,
+          "y": 704,
+          "right": 369.984375,
+          "bottom": 762.5,
+          "width": 67.59375,
+          "height": 58.5
+        },
+        {
+          "id": "traffic",
+          "x": 20,
+          "y": 765.5,
+          "right": 87.59375,
+          "bottom": 824,
+          "width": 67.59375,
+          "height": 58.5
+        },
+        {
+          "id": "people",
+          "x": 90.59375,
+          "y": 765.5,
+          "right": 158.1875,
+          "bottom": 824,
+          "width": 67.59375,
+          "height": 58.5
+        },
+        {
+          "id": "pause",
+          "x": 161.1875,
+          "y": 765.5,
+          "right": 228.796875,
+          "bottom": 824,
+          "width": 67.609375,
+          "height": 58.5
+        },
+        {
+          "id": "reset",
+          "x": 231.796875,
+          "y": 765.5,
+          "right": 299.390625,
+          "bottom": 824,
+          "width": 67.59375,
+          "height": 58.5
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "overflow": false,
+      "buttons": [
+        {
+          "id": "time",
+          "x": 20,
+          "y": 704,
+          "right": 73.59375,
+          "bottom": 762.5,
+          "width": 53.59375,
+          "height": 58.5
+        },
+        {
+          "id": "orbit",
+          "x": 76.59375,
+          "y": 704,
+          "right": 130.1875,
+          "bottom": 762.5,
+          "width": 53.59375,
+          "height": 58.5
+        },
+        {
+          "id": "train",
+          "x": 133.1875,
+          "y": 704,
+          "right": 186.796875,
+          "bottom": 762.5,
+          "width": 53.609375,
+          "height": 58.5
+        },
+        {
+          "id": "fog",
+          "x": 189.796875,
+          "y": 704,
+          "right": 243.390625,
+          "bottom": 762.5,
+          "width": 53.59375,
+          "height": 58.5
+        },
+        {
+          "id": "lights",
+          "x": 246.390625,
+          "y": 704,
+          "right": 299.984375,
+          "bottom": 762.5,
+          "width": 53.59375,
+          "height": 58.5
+        },
+        {
+          "id": "traffic",
+          "x": 20,
+          "y": 765.5,
+          "right": 73.59375,
+          "bottom": 824,
+          "width": 53.59375,
+          "height": 58.5
+        },
+        {
+          "id": "people",
+          "x": 76.59375,
+          "y": 765.5,
+          "right": 130.1875,
+          "bottom": 824,
+          "width": 53.59375,
+          "height": 58.5
+        },
+        {
+          "id": "pause",
+          "x": 133.1875,
+          "y": 765.5,
+          "right": 186.796875,
+          "bottom": 824,
+          "width": 53.609375,
+          "height": 58.5
+        },
+        {
+          "id": "reset",
+          "x": 189.796875,
+          "y": 765.5,
+          "right": 243.390625,
+          "bottom": 824,
+          "width": 53.59375,
+          "height": 58.5
+        }
+      ]
     }
+  ],
+  "interactionResults": {
+    "errors": [],
+    "movement": {
+      "people": true,
+      "train": true,
+      "boats": true,
+      "traffic": true
+    },
+    "paused": true,
+    "cycles": {
+      "traffic": [
+        "paused",
+        "hidden",
+        "active"
+      ],
+      "people": [
+        "paused",
+        "hidden",
+        "active"
+      ]
+    },
+    "fog": true,
+    "lightsOff": true,
+    "trainToast": "Next train approaching Liziba.",
+    "reduced": {
+      "paused": true,
+      "orbit": false,
+      "time": 0
+    }
+  },
+  "trainClearance": {
+    "samples": 881,
+    "method": "Separating-axis test: oriented train rectangle and occupied building boxes, including vertical overlap",
+    "collisions": [],
+    "scope": "Authoring envelopes for 21 heritage groups and 15 tower groups. Not a complete physical simulation or a guarantee for every decorative primitive."
   },
   "offline": {
     "errors": [],
@@ -39,36 +253,29 @@
     "result": {
       "ready": true,
       "mode": "sunset",
-      "toast": "Next train approaching Liziba.",
-      "render": {
-        "calls": 322,
-        "mainCalls": 277,
-        "triangles": 447610,
-        "textures": 43
-      }
+      "provenance": {
+        "originalSha": "fc00b1232f0546cd0c894c6e1ae0f8867eafc64c1b0869779f57282ac5ee7f77",
+        "terrainHeight": 10.875,
+        "scale": 1.45,
+        "heritageBlocks": 21,
+        "towers": 15
+      },
+      "water": true
     }
   },
-  "railClearance": {
-    "samples": 1200,
-    "violations": [],
-    "violationCount": 0,
-    "treeViolations": [],
-    "stationClearance": {
-      "side": 0.48,
-      "roof": 0.7599999999999998,
-      "wheelAboveConcrete": 0.019999999999997797,
-      "wheelSideGapFromRail": 0.13000000000000003
-    },
-    "trackLength": 50.26744279117637
-  },
-  "existingTests": {
+  "regressions": {
+    "tests": 67,
     "passed": 67,
     "failed": 0
   },
-  "limits": [
-    "Physical phones, GPU frame time and prolonged mobile performance were not tested.",
-    "Rail checks sample conservative car envelopes against recorded structure footprints; they are not an exact triangle-level collision proof.",
-    "Water reflection proxies include selected static architecture; moving boats, train and instanced foliage are not mirrored.",
-    "The miniature compresses distinct Chongqing locations into an artistic composition."
+  "renderSample": {
+    "calls": 255,
+    "mainCalls": 255,
+    "triangles": 270140,
+    "textures": 25
+  },
+  "limitations": [
+    "Compressed artistic landmarks, not a measured or geographically faithful reconstruction.",
+    "Performance was observed in desktop headless Chrome; no claim of identical performance on every phone."
   ]
 }
